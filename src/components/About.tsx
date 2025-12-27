@@ -1,0 +1,105 @@
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { Leaf, Mountain, Star } from "lucide-react";
+
+const stats = [
+  { icon: Leaf, value: "100%", label: "Ecológico" },
+  { icon: Mountain, value: "15km", label: "De Senderos" },
+  { icon: Star, value: "4.9", label: "Calificación" },
+];
+
+const About = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section id="nosotros" className="py-24 md:py-32 bg-background">
+      <div className="container mx-auto px-6">
+        <div ref={ref} className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-8 leading-tight">
+              Una Experiencia <br />
+              <span className="text-gradient-gold">Única</span>
+            </h2>
+
+            <div className="space-y-6 text-foreground/80 font-light leading-relaxed">
+              <p className="text-lg">
+                Terra Luna Glamping combina el lujo de un resort boutique con la
+                autenticidad de acampar bajo las estrellas. Nuestras elegantes
+                tiendas y domos geodésicos están diseñados para ofrecerte el
+                máximo confort mientras te reconectas con la naturaleza.
+              </p>
+              <p>
+                Ubicados en un valle privado rodeado de bosques nativos y
+                montañas, ofrecemos un escape perfecto de la rutina diaria. Cada
+                alojamiento cuenta con camas premium, baño privado, y una
+                terraza con vistas espectaculares.
+              </p>
+              <p>
+                Despierta con el canto de las aves, disfruta de noches
+                estrelladas alrededor de la fogata, y vive experiencias que
+                recordarás para siempre.
+              </p>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6 mt-10">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                  className="text-center"
+                >
+                  <stat.icon className="w-8 h-8 text-accent mx-auto mb-2" />
+                  <div className="font-serif text-2xl md:text-3xl text-primary font-medium">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-muted-foreground tracking-wider">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative h-[500px] md:h-[600px] rounded-t-[200px] overflow-hidden shadow-elevated">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center text-primary-foreground/20">
+                  <span className="text-[12rem] md:text-[15rem]">🏕️</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Badge */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity }}
+              className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground p-6 rounded-lg shadow-glow"
+            >
+              <div className="font-serif text-3xl font-medium">10+</div>
+              <div className="text-sm tracking-wider">Años de Experiencia</div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
