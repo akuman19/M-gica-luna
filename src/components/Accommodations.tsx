@@ -13,7 +13,7 @@ const accommodations = [
     id: 1,
     name: "Tienda Safari",
     image: tentImage,
-    price: 720000,
+    price: 350000,
     description:
       "Espaciosa tienda de campaña estilo safari con cama king size, baño privado, ducha de agua caliente, terraza con hamaca y vista al bosque.",
     fullDescription:
@@ -28,7 +28,7 @@ const accommodations = [
     id: 2,
     name: "Domo Geodésico",
     image: domeImage,
-    price: 1000000,
+    price: 480000,
     description:
       "Domo transparente con vista 360° al cielo nocturno, cama matrimonial, climatización, baño ecológico y deck privado con jacuzzi.",
     fullDescription:
@@ -43,7 +43,7 @@ const accommodations = [
     id: 3,
     name: "Cabaña Luna",
     image: cabinImage,
-    price: 1280000,
+    price: 650000,
     description:
       "Cabaña elevada de madera con dos habitaciones, cocina equipada, sala de estar, terraza panorámica y fogón privado. Ideal para familias.",
     fullDescription:
