@@ -32,7 +32,7 @@ const Contact = () => {
 
     toast({
       title: "¡Mensaje enviado!",
-      description: "Te contactaremos pronto. Gracias por tu interés en Terra Luna.",
+      description: "Te contactaremos pronto. Gracias por tu interés en Luna Andina.",
     });
 
     setFormData({ name: "", email: "", phone: "", message: "" });
