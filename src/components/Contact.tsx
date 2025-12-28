@@ -75,7 +75,7 @@ const Contact = () => {
                   <div>
                     <div className="font-medium mb-1">Ubicación</div>
                     <div className="text-primary-foreground/70 font-light">
-                      Valle del Cocora, Quindío<br />
+                      Valle del Cauca, Cali<br />
                       Colombia
                     </div>
                   </div>
@@ -86,10 +86,10 @@ const Contact = () => {
                   <div>
                     <div className="font-medium mb-1">Teléfono</div>
                     <a
-                      href="tel:+573001234567"
+                      href="tel:+573217377357"
                       className="text-primary-foreground/70 hover:text-accent transition-colors font-light"
                     >
-                      +57 300 123 4567
+                      +57 3217377357
                     </a>
                   </div>
                 </div>
@@ -99,10 +99,10 @@ const Contact = () => {
                   <div>
                     <div className="font-medium mb-1">Email</div>
                     <a
-                      href="mailto:contacto@terraluna.com"
+                      href="mailto:contacto@lunaandina.com"
                       className="text-primary-foreground/70 hover:text-accent transition-colors font-light"
                     >
-                      contacto@terraluna.com
+                      contacto@lunaandina.com
                     </a>
                   </div>
                 </div>
@@ -121,8 +121,18 @@ const Contact = () => {
             </div>
 
             {/* Map Placeholder */}
-            <div className="h-48 bg-primary-foreground/10 rounded-lg flex items-center justify-center">
-              <span className="text-6xl">🗺️</span>
+            <div className="h-64 rounded-lg overflow-hidden shadow-soft border border-primary-foreground/20">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63715.65934571764!2d-76.57796798031126!3d3.437220098197067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a6f0a1516447%3A0x74472713f563e704!2sCali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1703712345678!5m2!1ses!2sco"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="grayscale hover:grayscale-0 transition-all duration-500"
+                title="Ubicación Luna Andina Glamping"
+              ></iframe>
             </div>
           </motion.div>
 

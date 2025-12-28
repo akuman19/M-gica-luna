@@ -24,11 +24,16 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    // Cerrar el menú móvil primero
     setIsMobileMenuOpen(false);
+
+    // Esperar a que la animación del menú termine antes de hacer scroll
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 300);
   };
 
   return (
@@ -36,11 +41,10 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
           ? "bg-primary/95 backdrop-blur-md shadow-elevated py-4"
           : "bg-gradient-to-b from-primary-dark/80 to-transparent py-6"
-      }`}
+        }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <motion.a
@@ -52,7 +56,7 @@ const Navbar = () => {
           className="font-serif text-2xl md:text-3xl text-accent tracking-widest font-medium"
           whileHover={{ scale: 1.02 }}
         >
-          TERRA LUNA
+          LUNA ANDINA
         </motion.a>
 
         {/* Desktop Navigation */}

@@ -35,7 +35,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="font-serif text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-primary-foreground tracking-wider font-light mb-4"
         >
-          TERRA LUNA
+          LUNA ANDINA
         </motion.h1>
 
         <motion.p

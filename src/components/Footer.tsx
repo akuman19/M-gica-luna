@@ -41,11 +41,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <h3 className="font-serif text-3xl text-accent tracking-widest mb-4">
-              TERRA LUNA
+              LUNA ANDINA
             </h3>
             <p className="text-primary-foreground/70 font-light leading-relaxed mb-6">
               Lujo en armonía con la naturaleza. Una experiencia única de glamping
-              en el corazón del Eje Cafetero colombiano.
+              en el corazón del valle del cauca.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -135,7 +135,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-primary-foreground/60 text-sm font-light">
-            © 2024 Terra Luna Glamping. Todos los derechos reservados.
+            © 2025 Luna Andina Glamping. Todos los derechos reservados.
           </p>
           <p className="text-primary-foreground/60 text-sm font-light flex items-center gap-1">
             Hecho con <Heart size={14} className="text-accent fill-accent" /> en Colombia

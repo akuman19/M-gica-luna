@@ -6,35 +6,35 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "María García",
+    name: "Camila García",
     location: "Bogotá, Colombia",
     rating: 5,
     text: "Una experiencia transformadora. El domo geodésico nos permitió dormir bajo las estrellas mientras disfrutábamos del máximo confort. El servicio fue impecable y la comida deliciosa.",
-    avatar: "MG",
+    avatar: "CG",
   },
   {
     id: 2,
-    name: "Carlos Rodríguez",
+    name: "Enzo Perez",
     location: "Medellín, Colombia",
     rating: 5,
     text: "Llevé a mi familia y fue el mejor regalo que pudimos darnos. Los niños disfrutaron de la naturaleza y nosotros de la paz y tranquilidad. La cabaña Luna es perfecta.",
-    avatar: "CR",
+    avatar: "EP",
   },
   {
     id: 3,
-    name: "Ana Martínez",
+    name: "Sandra Gomez",
     location: "Cali, Colombia",
     rating: 5,
     text: "El retiro de yoga superó todas mis expectativas. Despertar con vistas a las montañas y practicar yoga al amanecer fue una experiencia espiritual única.",
-    avatar: "AM",
+    avatar: "SG",
   },
   {
     id: 4,
-    name: "Roberto Sánchez",
+    name: "Roberto Aguirre",
     location: "Cartagena, Colombia",
     rating: 5,
     text: "Celebramos nuestro aniversario aquí y fue mágico. La tienda safari es lujosa y romántica. Las fogatas nocturnas bajo el cielo estrellado son inolvidables.",
-    avatar: "RS",
+    avatar: "RA",
   },
 ];
 
@@ -130,11 +130,10 @@ const Testimonials = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentIndex
+                  className={`w-3 h-3 rounded-full transition-all ${index === currentIndex
                       ? "bg-accent w-8"
                       : "bg-border hover:bg-muted-foreground"
-                  }`}
+                    }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}

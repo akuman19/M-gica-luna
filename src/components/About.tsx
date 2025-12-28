@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Leaf, Mountain, Star } from "lucide-react";
+import aboutImage from "@/assets/about-image.jpg";
 
 const stats = [
   { icon: Leaf, value: "100%", label: "Ecológico" },
@@ -30,7 +31,7 @@ const About = () => {
 
             <div className="space-y-6 text-foreground/80 font-light leading-relaxed">
               <p className="text-lg">
-                Terra Luna Glamping combina el lujo de un resort boutique con la
+                Luna Andina Glamping combina el lujo de un resort boutique con la
                 autenticidad de acampar bajo las estrellas. Nuestras elegantes
                 tiendas y domos geodésicos están diseñados para ofrecerte el
                 máximo confort mientras te reconectas con la naturaleza.
@@ -78,12 +79,11 @@ const About = () => {
             className="relative"
           >
             <div className="relative h-[500px] md:h-[600px] rounded-t-[200px] overflow-hidden shadow-elevated">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-primary-foreground/20">
-                  <span className="text-[12rem] md:text-[15rem]">🏕️</span>
-                </div>
-              </div>
+              <img
+                src={aboutImage}
+                alt="Luna Andina Glamping"
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Floating Badge */}

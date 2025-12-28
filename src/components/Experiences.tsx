@@ -60,7 +60,7 @@ const Experiences = () => {
             Servicios & Experiencias
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Descubre todo lo que Terra Luna tiene para ofrecerte
+            Descubre todo lo que Luna Andina tiene para ofrecerte
           </p>
         </motion.div>
 

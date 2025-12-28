@@ -6,11 +6,9 @@ import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
-import heroImage from "@/assets/hero-glamping.jpg";
 import domeImage from "@/assets/accommodation-dome.jpg";
 
 const images = [
-  { src: heroImage, alt: "Domo glamping al atardecer" },
   { src: gallery1, alt: "Fogata nocturna" },
   { src: gallery2, alt: "Yoga al amanecer" },
   { src: gallery3, alt: "Desayuno gourmet" },
@@ -52,7 +50,7 @@ const Gallery = () => {
             Galería
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explora los momentos mágicos que te esperan en Terra Luna
+            Explora los momentos mágicos que te esperan en Luna Andina
           </p>
         </motion.div>
 
@@ -65,16 +63,14 @@ const Gallery = () => {
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               onClick={() => openLightbox(index)}
-              className={`relative overflow-hidden rounded-lg group cursor-pointer ${
-                index === 0 ? "md:col-span-2 md:row-span-2" : ""
-              }`}
+              className={`relative overflow-hidden rounded-lg group cursor-pointer ${index === 0 ? "md:col-span-2 md:row-span-2" : ""
+                }`}
             >
               <img
                 src={image.src}
                 alt={image.alt}
-                className={`w-full object-cover transition-transform duration-700 group-hover:scale-110 ${
-                  index === 0 ? "h-64 md:h-full" : "h-48 md:h-64"
-                }`}
+                className={`w-full object-cover transition-transform duration-700 group-hover:scale-110 ${index === 0 ? "h-64 md:h-full" : "h-48 md:h-64"
+                  }`}
               />
               <div className="absolute inset-0 bg-primary-dark/0 group-hover:bg-primary-dark/40 transition-colors duration-300 flex items-center justify-center">
                 <span className="text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-light tracking-wider">
@@ -144,9 +140,8 @@ const Gallery = () => {
                   e.stopPropagation();
                   setLightboxIndex(index);
                 }}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  index === lightboxIndex ? "bg-accent" : "bg-primary-foreground/40"
-                }`}
+                className={`w-2 h-2 rounded-full transition-colors ${index === lightboxIndex ? "bg-accent" : "bg-primary-foreground/40"
+                  }`}
                 aria-label={`Go to image ${index + 1}`}
               />
             ))}

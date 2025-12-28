@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_NUMBER = "573001234567"; // Número de WhatsApp sin + ni espacios
-const WHATSAPP_MESSAGE = "Hola! Me interesa conocer más sobre Terra Luna Glamping y hacer una reserva.";
+const WHATSAPP_NUMBER = "573217377357"; // Número de WhatsApp sin + ni espacios
+const WHATSAPP_MESSAGE = "Hola! Me interesa conocer más sobre Luna Andina Glamping y hacer una reserva.";
 
 const WhatsAppButton = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
@@ -22,7 +22,7 @@ const WhatsAppButton = () => {
     >
       {/* Pulse Ring */}
       <span className="absolute w-full h-full rounded-full bg-[#25D366] animate-ping opacity-25" />
-      
+
       {/* Icon */}
       <MessageCircle className="w-8 h-8 text-white fill-white" />
 
