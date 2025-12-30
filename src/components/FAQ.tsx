@@ -17,7 +17,7 @@ const faqs = [
   {
     question: "¿Es necesario traer equipo de camping?",
     answer:
-      "No es necesario. Luna Andina es un glamping de lujo, por lo que todos los alojamientos están completamente equipados con camas premium, ropa de cama de alta calidad, toallas, y todo lo necesario para una estadía confortable.",
+      "No es necesario. Glamping Mágica Luna es un glamping de lujo, por lo que todos los alojamientos están completamente equipados con camas premium, ropa de cama de alta calidad, toallas, y todo lo necesario para una estadía confortable.",
   },
   {
     question: "¿Cuál es la política de cancelación?",

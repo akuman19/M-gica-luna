@@ -31,21 +31,18 @@ const About = () => {
 
             <div className="space-y-6 text-foreground/80 font-light leading-relaxed">
               <p className="text-lg">
-                Luna Andina Glamping combina el lujo de un resort boutique con la
-                autenticidad de acampar bajo las estrellas. Nuestras elegantes
-                tiendas y domos geodésicos están diseñados para ofrecerte el
-                máximo confort mientras te reconectas con la naturaleza.
+                Glamping Mágica Luna se encuentra frente a la Magia de los
+                termales. Experimenta el confort de nuestro Glamping y chalet en
+                medio de la montaña.
               </p>
               <p>
-                Ubicados en un valle privado rodeado de bosques nativos y
-                montañas, ofrecemos un escape perfecto de la rutina diaria. Cada
-                alojamiento cuenta con camas premium, baño privado, y una
-                terraza con vistas espectaculares.
+                Nuestras instalaciones cuentan con jacuzzi privado y malla
+                catamarán, espacios diseñados perfectamente para tu descanso y
+                relajación mientras disfrutas del paisaje.
               </p>
               <p>
-                Despierta con el canto de las aves, disfruta de noches
-                estrelladas alrededor de la fogata, y vive experiencias que
-                recordarás para siempre.
+                Estamos rodeados de naturaleza exuberante y muy cerca a la Ciudad,
+                ofreciéndote la escapada perfecta con lo mejor de ambos mundos.
               </p>
             </div>
 
@@ -81,7 +78,7 @@ const About = () => {
             <div className="relative h-[500px] md:h-[600px] rounded-t-[200px] overflow-hidden shadow-elevated">
               <img
                 src={aboutImage}
-                alt="Luna Andina Glamping"
+                alt="Glamping Mágica Luna"
                 className="w-full h-full object-cover"
               />
             </div>

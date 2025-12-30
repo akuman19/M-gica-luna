@@ -6,7 +6,7 @@ import tentImage from "@/assets/accommodation-tent.jpg";
 import domeImage from "@/assets/accommodation-dome.jpg";
 import cabinImage from "@/assets/accommodation-cabin.jpg";
 
-const WHATSAPP_NUMBER = "573217377357";
+const WHATSAPP_NUMBER = "573113333286";
 
 const accommodations = [
   {
@@ -87,7 +87,7 @@ const Accommodations = () => {
   };
 
   const handleWhatsAppReservation = (accName: string) => {
-    const message = `Hola! Me interesa reservar ${accName} en Luna Andina Glamping. ¿Podrían darme más información sobre disponibilidad y precios?`;
+    const message = `Hola! Me interesa reservar ${accName} en Glamping Mágica Luna. ¿Podrían darme más información sobre disponibilidad y precios?`;
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
   };
@@ -296,7 +296,7 @@ const Accommodations = () => {
                   </div>
                   <button
                     onClick={() => handleWhatsAppReservation(selectedAccommodation.name)}
-                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-[#25D366] text-white font-medium rounded-lg hover:bg-[#20BD5A] transition-colors"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary-dark transition-colors"
                   >
                     <MessageCircle size={20} />
                     Reservar por WhatsApp

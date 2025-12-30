@@ -13,13 +13,11 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
-    message: "",
+    message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -27,16 +25,43 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Usamos formsubmit.co para enviar el correo directamente
+      // La primera vez que pruebes el formulario, te llegará un correo de confirmación a tu email
+      // Debes confirmarlo para habilitar el servicio para tu dominio/email
+      const response = await fetch("https://formsubmit.co/ajax/Glampingmagicaluna@gmail.com", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData,
+          _subject: `Nueva Reserva/Consulta de ${formData.name}`,
+          _template: "table",
+          _captcha: "false"
+        })
+      });
 
-    toast({
-      title: "¡Mensaje enviado!",
-      description: "Te contactaremos pronto. Gracias por tu interés en Luna Andina.",
-    });
-
-    setFormData({ name: "", email: "", phone: "", message: "" });
-    setIsSubmitting(false);
+      if (response.ok) {
+        toast({
+          title: "¡Mensaje enviado!",
+          description: "Gracias por contactarnos. Te responderemos pronto a tu correo.",
+        });
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        throw new Error("Error al enviar");
+      }
+    } catch (error) {
+      console.error(error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Hubo un problema al enviar el mensaje. Intenta contactarnos por WhatsApp.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -75,8 +100,8 @@ const Contact = () => {
                   <div>
                     <div className="font-medium mb-1">Ubicación</div>
                     <div className="text-primary-foreground/70 font-light">
-                      Valle del Cauca, Cali<br />
-                      Colombia
+                      Vereda, Gallinazo km 5 via a Termales el Otoño.<br />
+                      Manizales, Colombia
                     </div>
                   </div>
                 </div>
@@ -86,10 +111,10 @@ const Contact = () => {
                   <div>
                     <div className="font-medium mb-1">Teléfono</div>
                     <a
-                      href="tel:+573217377357"
+                      href="tel:+573113333286"
                       className="text-primary-foreground/70 hover:text-accent transition-colors font-light"
                     >
-                      +57 3217377357
+                      311 333 3286
                     </a>
                   </div>
                 </div>
@@ -99,10 +124,10 @@ const Contact = () => {
                   <div>
                     <div className="font-medium mb-1">Email</div>
                     <a
-                      href="mailto:contacto@lunaandina.com"
+                      href="mailto:Glampingmagicaluna@gmail.com"
                       className="text-primary-foreground/70 hover:text-accent transition-colors font-light"
                     >
-                      contacto@lunaandina.com
+                      Glampingmagicaluna@gmail.com
                     </a>
                   </div>
                 </div>
@@ -123,7 +148,7 @@ const Contact = () => {
             {/* Map Placeholder */}
             <div className="h-64 rounded-lg overflow-hidden shadow-soft border border-primary-foreground/20">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63715.65934571764!2d-76.57796798031126!3d3.437220098197067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a6f0a1516447%3A0x74472713f563e704!2sCali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1703712345678!5m2!1ses!2sco"
+                src="https://maps.google.com/maps?q=Vereda,%20Gallinazo%20km%205%20via%20a%20Termales%20el%20Oto%C3%B1o.,%20Manizales,%20Colombia&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -131,7 +156,7 @@ const Contact = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="grayscale hover:grayscale-0 transition-all duration-500"
-                title="Ubicación Luna Andina Glamping"
+                title="Ubicación Glamping Mágica Luna"
               ></iframe>
             </div>
           </motion.div>

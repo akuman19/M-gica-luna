@@ -50,7 +50,7 @@ const Gallery = () => {
             Galería
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explora los momentos mágicos que te esperan en Luna Andina
+            Explora los momentos mágicos que te esperan en Glamping Mágica Luna
           </p>
         </motion.div>
 

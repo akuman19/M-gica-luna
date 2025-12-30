@@ -42,8 +42,8 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
-          ? "bg-primary/95 backdrop-blur-md shadow-elevated py-4"
-          : "bg-gradient-to-b from-primary-dark/80 to-transparent py-6"
+        ? "bg-primary/95 backdrop-blur-md shadow-elevated py-4"
+        : "bg-gradient-to-b from-primary-dark/80 to-transparent py-6"
         }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
@@ -56,7 +56,7 @@ const Navbar = () => {
           className="font-serif text-2xl md:text-3xl text-accent tracking-widest font-medium"
           whileHover={{ scale: 1.02 }}
         >
-          LUNA ANDINA
+          Glamping Mágica Luna
         </motion.a>
 
         {/* Desktop Navigation */}

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -11,6 +12,10 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
+  useEffect(() => {
+    document.title = "Glamping Mágica Luna - Lujo en Armonía con la Naturaleza";
+  }, []);
+
   return (
     <main className="overflow-hidden">
       <Navbar />

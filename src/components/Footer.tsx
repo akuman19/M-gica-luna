@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
-import { Facebook, Instagram, Twitter, Youtube, Heart } from "lucide-react";
+import { Facebook, Instagram, Heart } from "lucide-react";
 
 const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Youtube, href: "#", label: "YouTube" },
+  { icon: Facebook, href: "https://www.facebook.com/glampingmagicaluna", label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/magicalunaoficial?igsh=MTZhbzc3dnRkOXQ5Ng==", label: "Instagram" },
 ];
 
 const footerLinks = {
@@ -13,13 +11,10 @@ const footerLinks = {
     { label: "Alojamientos", href: "#alojamientos" },
     { label: "Experiencias", href: "#experiencias" },
     { label: "Galería", href: "#galeria" },
-    { label: "Blog", href: "#" },
   ],
   info: [
     { label: "Sobre Nosotros", href: "#nosotros" },
     { label: "Preguntas Frecuentes", href: "#faq" },
-    { label: "Políticas de Cancelación", href: "#" },
-    { label: "Términos y Condiciones", href: "#" },
   ],
 };
 
@@ -33,6 +28,8 @@ const Footer = () => {
     }
   };
 
+
+
   return (
     <footer className="bg-primary-dark text-primary-foreground">
       {/* Main Footer */}
@@ -41,11 +38,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <h3 className="font-serif text-3xl text-accent tracking-widest mb-4">
-              LUNA ANDINA
+              Hotel Glamping Magica luna
             </h3>
             <p className="text-primary-foreground/70 font-light leading-relaxed mb-6">
               Lujo en armonía con la naturaleza. Una experiencia única de glamping
-              en el corazón del valle del cauca.
+              frente a la magia de los termales en Manizales.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -108,26 +105,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div>
-            <h4 className="font-serif text-xl text-accent mb-6">Newsletter</h4>
-            <p className="text-primary-foreground/70 font-light mb-4">
-              Suscríbete para recibir ofertas exclusivas y novedades.
-            </p>
-            <form className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Tu email"
-                className="flex-1 px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-md text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:border-accent transition-colors text-sm"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-accent text-accent-foreground text-sm font-medium hover:bg-accent-light transition-colors"
-              >
-                OK
-              </button>
-            </form>
-          </div>
         </div>
       </div>
 
@@ -135,7 +112,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-primary-foreground/60 text-sm font-light">
-            © 2025 Luna Andina Glamping. Todos los derechos reservados.
+            © 2025 Hotel Glamping Magica luna. Todos los derechos reservados.
           </p>
           <p className="text-primary-foreground/60 text-sm font-light flex items-center gap-1">
             Hecho con <Heart size={14} className="text-accent fill-accent" /> en Colombia

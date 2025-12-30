@@ -35,7 +35,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="font-serif text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-primary-foreground tracking-wider font-light mb-4"
         >
-          LUNA ANDINA
+          Glamping Mágica Luna
         </motion.h1>
 
         <motion.p
@@ -44,7 +44,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.6 }}
           className="text-accent text-lg md:text-xl lg:text-2xl tracking-[0.3em] font-light mb-10"
         >
-          LUJO EN ARMONÍA CON LA NATURALEZA
+          FRENTE A LA MAGIA DE LOS TERMALES
         </motion.p>
 
         <motion.div

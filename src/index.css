@@ -10,51 +10,51 @@
   :root {
     /* Nature-inspired color palette */
     --background: 40 30% 97%;
-    --foreground: 150 20% 20%;
-    
+    --foreground: 275 60% 25%;
+
     --cream: 40 30% 97%;
     --cream-dark: 40 20% 94%;
-    
+
     --card: 40 30% 99%;
-    --card-foreground: 150 20% 20%;
-    
+    --card-foreground: 275 60% 25%;
+
     --popover: 40 30% 99%;
-    --popover-foreground: 150 20% 20%;
-    
-    /* Forest green primary */
-    --primary: 153 25% 25%;
+    --popover-foreground: 275 60% 25%;
+
+    /* Purple primary - Magica Luna Identity */
+    --primary: 275 60% 25%;
     --primary-foreground: 40 30% 97%;
-    --primary-dark: 153 30% 15%;
-    
-    /* Golden accent */
-    --accent: 43 65% 53%;
-    --accent-foreground: 153 30% 15%;
-    --accent-light: 43 70% 70%;
-    
+    --primary-dark: 275 65% 15%;
+
+    /* Golden/Orange accent - Magica Luna Identity */
+    --accent: 35 95% 60%;
+    --accent-foreground: 275 65% 15%;
+    --accent-light: 35 100% 75%;
+
     --secondary: 40 20% 94%;
-    --secondary-foreground: 153 25% 25%;
-    
+    --secondary-foreground: 275 60% 25%;
+
     --muted: 40 15% 90%;
-    --muted-foreground: 150 10% 45%;
-    
+    --muted-foreground: 275 30% 45%;
+
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    
+
     --border: 40 20% 88%;
     --input: 40 20% 88%;
-    --ring: 43 65% 53%;
-    
+    --ring: 35 95% 60%;
+
     --radius: 0.5rem;
-    
+
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(153 25% 25% / 0.9) 0%, hsl(153 30% 15% / 0.85) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(43 65% 53%) 0%, hsl(43 70% 65%) 100%);
-    --gradient-forest: linear-gradient(180deg, hsl(153 25% 25%) 0%, hsl(153 30% 15%) 100%);
-    
+    --gradient-hero: linear-gradient(135deg, hsl(275 60% 25% / 0.9) 0%, hsl(275 65% 15% / 0.85) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(35 95% 60%) 0%, hsl(35 100% 70%) 100%);
+    --gradient-forest: linear-gradient(180deg, hsl(275 60% 25%) 0%, hsl(275 65% 15%) 100%);
+
     /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(153 25% 25% / 0.08);
-    --shadow-elevated: 0 10px 40px hsl(153 25% 25% / 0.12);
-    --shadow-glow: 0 0 30px hsl(43 65% 53% / 0.3);
+    --shadow-soft: 0 4px 20px hsl(275 60% 25% / 0.08);
+    --shadow-elevated: 0 10px 40px hsl(275 60% 25% / 0.12);
+    --shadow-glow: 0 0 30px hsl(35 95% 60% / 0.3);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -67,33 +67,33 @@
   }
 
   .dark {
-    --background: 153 30% 8%;
+    --background: 275 65% 8%;
     --foreground: 40 30% 95%;
-    
-    --card: 153 25% 12%;
+
+    --card: 275 60% 12%;
     --card-foreground: 40 30% 95%;
-    
-    --popover: 153 25% 12%;
+
+    --popover: 275 60% 12%;
     --popover-foreground: 40 30% 95%;
-    
-    --primary: 43 65% 53%;
-    --primary-foreground: 153 30% 10%;
-    
-    --secondary: 153 20% 18%;
+
+    --primary: 35 95% 60%;
+    --primary-foreground: 275 60% 10%;
+
+    --secondary: 275 50% 18%;
     --secondary-foreground: 40 30% 95%;
-    
-    --muted: 153 20% 18%;
+
+    --muted: 275 50% 18%;
     --muted-foreground: 40 15% 65%;
-    
-    --accent: 43 65% 53%;
-    --accent-foreground: 153 30% 10%;
-    
+
+    --accent: 35 95% 60%;
+    --accent-foreground: 275 60% 10%;
+
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
-    
-    --border: 153 20% 20%;
-    --input: 153 20% 20%;
-    --ring: 43 65% 53%;
+
+    --border: 275 50% 20%;
+    --input: 275 50% 20%;
+    --ring: 35 95% 60%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -116,7 +116,12 @@
     font-family: 'Montserrat', sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Cormorant Garamond', serif;
     letter-spacing: 0.02em;
   }
