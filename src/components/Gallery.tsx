@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
@@ -19,25 +19,48 @@ const images = [
 const Gallery = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
-  const openLightbox = (index: number) => setLightboxIndex(index);
-  const closeLightbox = () => setLightboxIndex(null);
-
-  const goToPrev = () => {
-    if (lightboxIndex !== null) {
-      setLightboxIndex(lightboxIndex === 0 ? images.length - 1 : lightboxIndex - 1);
-    }
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+      scale: 0.9,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+      scale: 0.9,
+    }),
   };
 
-  const goToNext = () => {
-    if (lightboxIndex !== null) {
-      setLightboxIndex(lightboxIndex === images.length - 1 ? 0 : lightboxIndex + 1);
-    }
+  const paginate = (newDirection: number) => {
+    setDirection(newDirection);
+    setCurrentIndex((prevIndex) => {
+      let nextIndex = prevIndex + newDirection;
+      if (nextIndex < 0) nextIndex = images.length - 1;
+      if (nextIndex >= images.length) nextIndex = 0;
+      return nextIndex;
+    });
   };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      paginate(1);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <section id="galeria" className="py-24 md:py-32 bg-secondary">
+    <section id="galeria" className="py-24 md:py-32 bg-secondary overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -54,100 +77,91 @@ const Gallery = () => {
           </p>
         </motion.div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {images.map((image, index) => (
-            <motion.button
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              onClick={() => openLightbox(index)}
-              className={`relative overflow-hidden rounded-lg group cursor-pointer ${index === 0 ? "md:col-span-2 md:row-span-2" : ""
-                }`}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className={`w-full object-cover transition-transform duration-700 group-hover:scale-110 ${index === 0 ? "h-64 md:h-full" : "h-48 md:h-64"
-                  }`}
-              />
-              <div className="absolute inset-0 bg-primary-dark/0 group-hover:bg-primary-dark/40 transition-colors duration-300 flex items-center justify-center">
-                <span className="text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-light tracking-wider">
-                  Ver imagen
-                </span>
-              </div>
-            </motion.button>
-          ))}
-        </div>
-      </div>
+        <div className="relative max-w-5xl mx-auto h-[400px] md:h-[600px]">
+          {/* Main Carousel Area */}
+          <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.div
+                key={currentIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.4 },
+                  scale: { duration: 0.4 }
+                }}
+                className="absolute inset-0 w-full h-full"
+              >
+                <img
+                  src={images[currentIndex].src}
+                  alt={images[currentIndex].alt}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 
-      {/* Lightbox */}
-      {lightboxIndex !== null && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-primary-dark/95 flex items-center justify-center p-4"
-          onClick={closeLightbox}
-        >
-          <button
-            onClick={closeLightbox}
-            className="absolute top-6 right-6 text-primary-foreground hover:text-accent transition-colors"
-            aria-label="Close lightbox"
-          >
-            <X size={32} />
-          </button>
+                {/* Image Label */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="absolute bottom-10 left-10 text-white"
+                >
+                  <p className="text-sm tracking-[0.3em] font-light uppercase border-l-2 border-accent pl-4">
+                    {images[currentIndex].alt}
+                  </p>
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
 
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              goToPrev();
-            }}
-            className="absolute left-4 md:left-8 text-primary-foreground hover:text-accent transition-colors"
-            aria-label="Previous image"
-          >
-            <ChevronLeft size={40} />
-          </button>
+            {/* Navigation Arrows */}
+            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 px-4 md:px-8 flex justify-between items-center z-10 pointer-events-none">
+              <button
+                onClick={() => paginate(-1)}
+                className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-accent hover:text-accent-foreground transition-all pointer-events-auto group"
+                aria-label="Previous"
+              >
+                <ChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
+              </button>
+              <button
+                onClick={() => paginate(1)}
+                className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-accent hover:text-accent-foreground transition-all pointer-events-auto group"
+                aria-label="Next"
+              >
+                <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </div>
 
-          <motion.img
-            key={lightboxIndex}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            src={images[lightboxIndex].src}
-            alt={images[lightboxIndex].alt}
-            className="max-w-full max-h-[85vh] object-contain rounded-lg"
-            onClick={(e) => e.stopPropagation()}
-          />
-
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              goToNext();
-            }}
-            className="absolute right-4 md:right-8 text-primary-foreground hover:text-accent transition-colors"
-            aria-label="Next image"
-          >
-            <ChevronRight size={40} />
-          </button>
-
-          {/* Dots */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+          {/* Thumbnail/Dots Area */}
+          <div className="flex justify-center gap-4 mt-8">
             {images.map((_, index) => (
               <button
                 key={index}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setLightboxIndex(index);
+                onClick={() => {
+                  setDirection(index > currentIndex ? 1 : -1);
+                  setCurrentIndex(index);
                 }}
-                className={`w-2 h-2 rounded-full transition-colors ${index === lightboxIndex ? "bg-accent" : "bg-primary-foreground/40"
+                className={`relative h-1 w-12 md:w-16 rounded-full overflow-hidden transition-all duration-500 ${index === currentIndex ? "bg-accent" : "bg-primary/20 hover:bg-primary/40"
                   }`}
-                aria-label={`Go to image ${index + 1}`}
-              />
+              >
+                <AnimatePresence>
+                  {index === currentIndex && (
+                    <motion.div
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 5, ease: "linear" }}
+                      className="absolute inset-0 bg-accent-light"
+                    />
+                  )}
+                </AnimatePresence>
+              </button>
             ))}
           </div>
-        </motion.div>
-      )}
+        </div>
+      </div>
     </section>
   );
 };
