@@ -15,7 +15,7 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="nosotros" className="py-24 md:py-32 bg-background">
+    <section id="about-section" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
         <div ref={ref} className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}

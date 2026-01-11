@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#nosotros", label: "Nosotros" },
-  { href: "#experiencias", label: "Experiencias" },
-  { href: "#alojamientos", label: "Alojamientos" },
-  { href: "#galeria", label: "Galería" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/", label: "Inicio" },
+  { href: "/nosotros", label: "Nosotros" },
+  { href: "/eventos", label: "Eventos" },
+  { href: "/alojamientos", label: "Alojamientos" },
+  { href: "/galeria", label: "Galería" },
+  { href: "/contacto", label: "Contacto" },
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,17 +25,12 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    // Cerrar el menú móvil primero
+  const handleLinkClick = () => {
     setIsMobileMenuOpen(false);
+  };
 
-    // Esperar a que la animación del menú termine antes de hacer scroll
-    setTimeout(() => {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }, 300);
+  const isActive = (href: string) => {
+    return location.pathname === href;
   };
 
   return (
@@ -47,33 +44,31 @@ const Navbar = () => {
         }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <motion.a
-          href="#inicio"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("#inicio");
-          }}
-          className="font-serif text-2xl md:text-3xl text-accent tracking-widest font-medium"
-          whileHover={{ scale: 1.02 }}
-        >
-          Glamping Mágica Luna
-        </motion.a>
+        <motion.div whileHover={{ scale: 1.02 }}>
+          <Link
+            to="/"
+            onClick={handleLinkClick}
+            className="font-serif text-2xl md:text-3xl text-accent tracking-widest font-medium"
+          >
+            Glamping Mágica Luna
+          </Link>
+        </motion.div>
 
         {/* Desktop Navigation */}
         <ul className="hidden lg:flex gap-8 xl:gap-12">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(link.href);
-                }}
-                className="text-primary-foreground/90 hover:text-accent text-sm tracking-wider font-light relative group transition-colors duration-300"
+              <Link
+                to={link.href}
+                className={`text-sm tracking-wider font-light relative group transition-colors duration-300 ${isActive(link.href)
+                    ? "text-accent"
+                    : "text-primary-foreground/90 hover:text-accent"
+                  }`}
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-1/2 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full group-hover:left-0" />
-              </a>
+                <span className={`absolute -bottom-1 left-0 h-px bg-accent transition-all duration-300 ${isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
+                  }`} />
+              </Link>
             </li>
           ))}
         </ul>
@@ -105,16 +100,16 @@ const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(link.href);
-                    }}
-                    className="block text-primary-foreground/90 hover:text-accent text-lg tracking-wider font-light py-2 transition-colors"
+                  <Link
+                    to={link.href}
+                    onClick={handleLinkClick}
+                    className={`block text-lg tracking-wider font-light py-2 transition-colors ${isActive(link.href)
+                        ? "text-accent"
+                        : "text-primary-foreground/90 hover:text-accent"
+                      }`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </ul>

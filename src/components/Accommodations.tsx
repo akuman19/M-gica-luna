@@ -87,7 +87,7 @@ const Accommodations = () => {
   };
 
   const handleWhatsAppReservation = (accName: string) => {
-    const message = `Hola! Me interesa reservar ${accName} en Glamping Mágica Luna. ¿Podrían darme más información sobre disponibilidad y precios?`;
+    const message = `Hola! Me interesa reservar ${accName} en Hotel Glamping Magica Luna. ¿Podrían darme más información sobre disponibilidad y precios?`;
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
   };

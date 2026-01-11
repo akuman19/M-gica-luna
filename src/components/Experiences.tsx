@@ -1,44 +1,65 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Flame, UtensilsCrossed, TreePine, Waves, Camera, Activity } from "lucide-react";
+import {
+  Flame,
+  UtensilsCrossed,
+  TreePine,
+  Wine,
+  Bird,
+  Coffee,
+  Heart,
+  Footprints
+} from "lucide-react";
 
 const experiences = [
+  {
+    icon: Heart,
+    title: "Decoración Romántica",
+    description:
+      "Ambientes decorados con detalles románticos y temáticos para celebrar momentos especiales con tu pareja.",
+  },
+  {
+    icon: Wine,
+    title: "Picnic & Vino",
+    description:
+      "Disfruta de un picnic gourmet con selección de vinos locales en medio de paisajes naturales únicos.",
+  },
   {
     icon: Flame,
     title: "Fogatas Privadas",
     description:
-      "Cada alojamiento cuenta con su propia área de fogata con leña incluida y asientos cómodos para disfrutar noches mágicas bajo las estrellas.",
+      "Cada alojamiento cuenta con su propia área de fogata con leña incluida para noches mágicas bajo las estrellas.",
   },
   {
     icon: UtensilsCrossed,
     title: "Gastronomía Local",
     description:
-      "Desayunos gourmet incluidos y cenas opcionales preparadas con ingredientes orgánicos de productores locales.",
+      "Desayunos gourmet y cenas preparadas con ingredientes orgánicos de productores locales de la región.",
   },
   {
-    icon: Activity,
-    title: "Yoga & Meditación",
+    icon: Footprints,
+    title: "Caminatas Ecológicas",
     description:
-      "Clases diarias de yoga al amanecer en nuestro deck panorámico, con instructores certificados y vistas a las montañas.",
+      "Rutas guiadas por senderos naturales que atraviesan bosques, cascadas y miradores panorámicos.",
+  },
+  {
+    icon: Bird,
+    title: "Avistamiento de Aves",
+    description:
+      "Observa especies nativas y migratorias en su hábitat natural con guías especializados.",
+  },
+  {
+    icon: Coffee,
+    title: "Cultura Cafetera",
+    description:
+      "Tours por fincas cafeteras, degustación de café de origen y experiencia en el proceso del grano.",
   },
   {
     icon: TreePine,
-    title: "Rutas de Senderismo",
+    title: "Conexión con la Naturaleza",
     description:
-      "Acceso a más de 15 km de senderos privados que atraviesan bosques, cascadas y miradores naturales.",
-  },
-  {
-    icon: Waves,
-    title: "Spa Natural",
-    description:
-      "Masajes y tratamientos de bienestar en nuestro spa al aire libre, rodeado de naturaleza y tranquilidad.",
-  },
-  {
-    icon: Camera,
-    title: "Tours Fotográficos",
-    description:
-      "Sesiones guiadas para capturar la belleza del paisaje durante las horas doradas del amanecer y atardecer.",
+      "Espacios diseñados para desconectarte del ruido y reconectarte con la paz del entorno natural.",
   },
 ];
 
@@ -57,14 +78,14 @@ const Experiences = () => {
           className="text-center mb-16"
         >
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-4">
-            Servicios & Experiencias
+            Experiencias <span className="text-gradient-gold">Adicionales</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Descubre todo lo que Glamping Mágica Luna tiene para ofrecerte
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Complementa tu estadía o evento con experiencias diseñadas para conectar, celebrar y recordar.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.title}

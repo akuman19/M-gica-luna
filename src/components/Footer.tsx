@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Facebook, Instagram, Heart } from "lucide-react";
 
 const socialLinks = [
@@ -8,28 +9,17 @@ const socialLinks = [
 
 const footerLinks = {
   explore: [
-    { label: "Alojamientos", href: "#alojamientos" },
-    { label: "Experiencias", href: "#experiencias" },
-    { label: "Galería", href: "#galeria" },
+    { label: "Alojamientos", href: "/alojamientos" },
+    { label: "Eventos", href: "/eventos" },
+    { label: "Galería", href: "/galeria" },
   ],
   info: [
-    { label: "Sobre Nosotros", href: "#nosotros" },
-    { label: "Preguntas Frecuentes", href: "#faq" },
+    { label: "Sobre Nosotros", href: "/nosotros" },
+    { label: "Contacto", href: "/contacto" },
   ],
 };
 
 const Footer = () => {
-  const scrollToSection = (href: string) => {
-    if (href.startsWith("#")) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-  };
-
-
-
   return (
     <footer className="bg-primary-dark text-primary-foreground">
       {/* Main Footer */}
@@ -38,7 +28,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <h3 className="font-serif text-3xl text-accent tracking-widest mb-4">
-              Hotel Glamping Magica luna
+              Hotel Glamping Mágica Luna
             </h3>
             <p className="text-primary-foreground/70 font-light leading-relaxed mb-6">
               Lujo en armonía con la naturaleza. Una experiencia única de glamping
@@ -49,6 +39,8 @@ const Footer = () => {
                 <motion.a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.2 }}
                   className="w-10 h-10 border border-primary-foreground/30 rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all"
                   aria-label={social.label}
@@ -65,18 +57,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.explore.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      if (link.href.startsWith("#")) {
-                        e.preventDefault();
-                        scrollToSection(link.href);
-                      }
-                    }}
+                  <Link
+                    to={link.href}
                     className="text-primary-foreground/70 hover:text-accent transition-colors font-light"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -88,21 +74,31 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.info.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      if (link.href.startsWith("#")) {
-                        e.preventDefault();
-                        scrollToSection(link.href);
-                      }
-                    }}
+                  <Link
+                    to={link.href}
                     className="text-primary-foreground/70 hover:text-accent transition-colors font-light"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Quick Contact */}
+          <div>
+            <h4 className="font-serif text-xl text-accent mb-6">Contacto Rápido</h4>
+            <div className="space-y-3">
+              <p className="text-primary-foreground/70 font-light">
+                Manizales, Caldas, Colombia
+              </p>
+              <Link
+                to="/contacto"
+                className="inline-block text-accent hover:text-accent/80 transition-colors font-light"
+              >
+                Reserva tu experiencia →
+              </Link>
+            </div>
           </div>
 
         </div>
@@ -112,7 +108,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-primary-foreground/60 text-sm font-light">
-            © 2025 Hotel Glamping Magica luna. Todos los derechos reservados.
+            © 2025 Hotel Glamping Mágica Luna. Todos los derechos reservados.
           </p>
           <p className="text-primary-foreground/60 text-sm font-light flex items-center gap-1">
             Hecho con <Heart size={14} className="text-accent fill-accent" /> en Colombia

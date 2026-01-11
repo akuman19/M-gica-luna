@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-glamping.jpg";
 
 const Hero = () => {
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
+  const scrollToAbout = () => {
+    const element = document.getElementById("about-section");
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -53,8 +54,8 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.9 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <button
-            onClick={() => scrollToSection("#contacto")}
+          <Link
+            to="/contacto"
             className="group relative px-10 py-4 bg-accent text-accent-foreground font-medium tracking-widest text-sm overflow-hidden transition-all duration-500 hover:shadow-glow"
           >
             <span className="relative z-10">RESERVA AHORA</span>
@@ -62,14 +63,14 @@ const Hero = () => {
             <span className="absolute inset-0 flex items-center justify-center text-primary font-medium tracking-widest text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
               RESERVA AHORA
             </span>
-          </button>
+          </Link>
 
-          <button
-            onClick={() => scrollToSection("#alojamientos")}
+          <Link
+            to="/alojamientos"
             className="px-10 py-4 border border-primary-foreground/40 text-primary-foreground font-light tracking-widest text-sm hover:bg-primary-foreground/10 hover:border-accent transition-all duration-300"
           >
             VER ALOJAMIENTOS
-          </button>
+          </Link>
         </motion.div>
       </div>
 
@@ -81,7 +82,7 @@ const Hero = () => {
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
         <motion.button
-          onClick={() => scrollToSection("#nosotros")}
+          onClick={scrollToAbout}
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="text-primary-foreground/60 hover:text-accent transition-colors"
