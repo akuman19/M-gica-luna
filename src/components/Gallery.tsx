@@ -1,12 +1,26 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "./icons";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 import domeImage from "@/assets/accommodation-dome.jpg";
+import galleryImp1 from "@/assets/gallery-imported-1.jpg";
+import galleryImp2 from "@/assets/gallery-imported-2.jpg";
+import galleryImp3 from "@/assets/gallery-imported-3.jpg";
+import galleryImp4 from "@/assets/gallery-imported-4.jpg";
+import galleryImp5 from "@/assets/gallery-imported-5.jpg";
+import galleryImp6 from "@/assets/gallery-imported-6.jpg";
+import galleryImp7 from "@/assets/gallery-imported-7.jpg";
+import galleryImp8 from "@/assets/gallery-imported-8.jpg";
+import galleryImp9 from "@/assets/gallery-imported-9.jpg";
+import galleryImp10 from "@/assets/gallery-imported-10.jpg";
+import galleryImp11 from "@/assets/gallery-imported-11.jpg";
+import galleryImp12 from "@/assets/gallery-imported-12.jpg";
+import galleryImp13 from "@/assets/gallery-imported-13.jpg";
+import galleryImp14 from "@/assets/gallery-imported-14.jpg";
 
 const images = [
   { src: gallery1, alt: "Fogata nocturna" },
@@ -14,6 +28,20 @@ const images = [
   { src: gallery3, alt: "Desayuno gourmet" },
   { src: gallery4, alt: "Senderismo en cascada" },
   { src: domeImage, alt: "Domo bajo las estrellas" },
+  { src: galleryImp1, alt: "Eventos Especiales" },
+  { src: galleryImp2, alt: "Celebraciones Inolvidables" },
+  { src: galleryImp3, alt: "Naturaleza Viva" },
+  { src: galleryImp4, alt: "Espacios con Encanto" },
+  { src: galleryImp5, alt: "Atardeceres Únicos" },
+  { src: galleryImp6, alt: "Detalles que Enamoran" },
+  { src: galleryImp7, alt: "Experiencias Mágicas" },
+  { src: galleryImp8, alt: "Confort y Estilo" },
+  { src: galleryImp9, alt: "Ambiente Romántico" },
+  { src: galleryImp10, alt: "Vistas Panorámicas" },
+  { src: galleryImp11, alt: "Momentos de Paz" },
+  { src: galleryImp12, alt: "Escapada Perfecta" },
+  { src: galleryImp13, alt: "Magia en la Montaña" },
+  { src: galleryImp14, alt: "Tu Mejor Recuerdo" },
 ];
 
 const Gallery = () => {

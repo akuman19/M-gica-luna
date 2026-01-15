@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Leaf, Mountain, Star } from "lucide-react";
+import { Leaf, Mountain, Star } from "./icons";
 import aboutImage from "@/assets/about-image.jpg";
 
 const stats = [

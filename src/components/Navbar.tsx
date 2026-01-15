@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X } from "./icons";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/nosotros", label: "Nosotros" },
+  { href: "/experiencias", label: "Experiencias" },
   { href: "/eventos", label: "Eventos" },
   { href: "/alojamientos", label: "Alojamientos" },
   { href: "/galeria", label: "Galería" },
@@ -61,8 +62,8 @@ const Navbar = () => {
               <Link
                 to={link.href}
                 className={`text-sm tracking-wider font-light relative group transition-colors duration-300 ${isActive(link.href)
-                    ? "text-accent"
-                    : "text-primary-foreground/90 hover:text-accent"
+                  ? "text-accent"
+                  : "text-primary-foreground/90 hover:text-accent"
                   }`}
               >
                 {link.label}
@@ -104,8 +105,8 @@ const Navbar = () => {
                     to={link.href}
                     onClick={handleLinkClick}
                     className={`block text-lg tracking-wider font-light py-2 transition-colors ${isActive(link.href)
-                        ? "text-accent"
-                        : "text-primary-foreground/90 hover:text-accent"
+                      ? "text-accent"
+                      : "text-primary-foreground/90 hover:text-accent"
                       }`}
                   >
                     {link.label}

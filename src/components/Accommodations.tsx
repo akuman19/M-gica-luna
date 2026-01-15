@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Users, Bed, Bath, Eye, X, MessageCircle, Check } from "lucide-react";
+import { Users, Bed, Bath, Eye, X, MessageCircle, Check } from "./icons";
 import tentImage from "@/assets/accommodation-tent.jpg";
 import domeImage from "@/assets/accommodation-dome.jpg";
 import cabinImage from "@/assets/accommodation-cabin.jpg";
@@ -11,48 +11,48 @@ const WHATSAPP_NUMBER = "573113333286";
 const accommodations = [
   {
     id: 1,
-    name: "Tienda Safari",
-    image: tentImage,
+    name: "Chalet (Plan 1 y 2)",
+    image: cabinImage,
     price: 350000,
     description:
-      "Espaciosa tienda de campaña estilo safari con cama king size, baño privado, ducha de agua caliente, terraza con hamaca y vista al bosque.",
+      "Chalet exclusivo para pareja con jacuzzi privado. El refugio romántico perfecto.",
     fullDescription:
-      "Sumérgete en la experiencia auténtica del glamping con nuestra Tienda Safari de lujo. Esta espaciosa tienda combina el encanto de acampar con todas las comodidades de un hotel boutique. Disfruta de una cama king size con sábanas de algodón egipcio, un baño privado completo con ducha de agua caliente, y una terraza privada con hamaca donde podrás relajarte contemplando el bosque.",
+      "Nuestros Chalets (Plan 1 y 2) están diseñados pensando en el romance y la privacidad. Cada chalet cuenta con un jacuzzi privado para disfrutar en pareja, cama king size y una atmósfera acogedora rodeada de naturaleza. Es la opción ideal para celebrar aniversarios o simplemente escapar de la rutina con tu persona favorita.",
     capacity: 2,
     beds: 1,
     baths: 1,
-    features: ["Vista al bosque", "Terraza privada", "Hamaca", "Fogata"],
-    amenities: ["Wifi gratis", "Desayuno incluido", "Servicio de limpieza", "Minibar", "Caja fuerte"],
+    features: ["Jacuzzi Privado", "Para Parejas", "Privacidad Total", "Agua Caliente"],
+    amenities: ["Wifi gratis", "Desayuno incluido", "Minibar", "Parqueadero", "TV Cable"],
   },
   {
     id: 2,
-    name: "Domo Geodésico",
+    name: "Glamping (Plan 3)",
     image: domeImage,
-    price: 480000,
+    price: 320000,
     description:
-      "Domo transparente con vista 360° al cielo nocturno, cama matrimonial, climatización, baño ecológico y deck privado con jacuzzi.",
+      "Glamping para pareja con jacuzzi privado y espectacular malla catamarán.",
     fullDescription:
-      "Vive una experiencia única bajo las estrellas en nuestro exclusivo Domo Geodésico. Con paredes transparentes que ofrecen una vista 360° del cielo nocturno, podrás observar las estrellas desde tu cama. El domo cuenta con climatización para tu comodidad, un baño ecológico de diseño, y un deck privado con jacuzzi donde podrás relajarte bajo el cielo estrellado.",
+      "El Plan 3 ofrece una experiencia de Glamping inolvidable. Disfruta de una noche mágica con tu pareja en una estructura única que cuenta con jacuzzi privado para relajarte y una malla catamarán donde podrás acostarte a observar el cielo y sentirte suspendido en la naturaleza.",
     capacity: 2,
     beds: 1,
     baths: 1,
-    features: ["Vista 360°", "Jacuzzi", "Climatización", "Observación estelar"],
-    amenities: ["Wifi gratis", "Desayuno incluido", "Telescopio", "Música ambiental", "Aromaterapia"],
+    features: ["Jacuzzi", "Malla Catamarán", "Vista Panorámica", "Diseño Único"],
+    amenities: ["Wifi gratis", "Desayuno incluido", "Malla de descanso", "Baño privado"],
   },
   {
     id: 3,
-    name: "Cabaña Luna",
-    image: cabinImage,
-    price: 650000,
+    name: "Cabaña (Plan 4)",
+    image: tentImage,
+    price: 160000,
     description:
-      "Cabaña elevada de madera con dos habitaciones, cocina equipada, sala de estar, terraza panorámica y fogón privado. Ideal para familias.",
+      "Cabaña acogedora y confortable, la opción ideal para disfrutar la naturaleza.",
     fullDescription:
-      "La Cabaña Luna es perfecta para familias o grupos que buscan espacio y privacidad. Esta hermosa cabaña elevada de madera cuenta con dos habitaciones (una con cama king y otra con dos camas individuales), una cocina completamente equipada, una acogedora sala de estar con chimenea, y una amplia terraza panorámica con vistas impresionantes. Incluye fogón privado para noches memorables bajo las estrellas.",
-    capacity: 4,
-    beds: 2,
-    baths: 2,
-    features: ["2 Habitaciones", "Cocina equipada", "Terraza panorámica", "Fogón"],
-    amenities: ["Wifi gratis", "Desayuno incluido", "Chimenea", "BBQ privado", "Juegos de mesa"],
+      "Nuestra Cabaña (Plan 4) ofrece todo lo necesario para una estadía placentera a un precio excelente. Es un espacio íntimo y acogedor, perfecto para descansar y conectar con el entorno natural de Mágica Luna sin complicaciones.",
+    capacity: 2,
+    beds: 1,
+    baths: 1,
+    features: ["Económica", "Acogedora", "Entorno Natural", "Tranquilidad"],
+    amenities: ["Wifi gratis", "Desayuno incluido", "Baño con ducha", "Zona verde"],
   },
 ];
 

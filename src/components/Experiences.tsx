@@ -10,7 +10,7 @@ import {
   Coffee,
   Heart,
   Footprints
-} from "lucide-react";
+} from "./icons";
 
 const experiences = [
   {

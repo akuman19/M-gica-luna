@@ -9,7 +9,7 @@ import {
     Sparkles,
     Car,
     Award
-} from "lucide-react";
+} from "./icons";
 
 const reasons = [
     {

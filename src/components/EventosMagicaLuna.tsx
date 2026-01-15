@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Heart, Crown, Building2, PartyPopper, Sparkles, MessageCircle } from "lucide-react";
+import { Heart, Crown, Building2, PartyPopper, Sparkles, MessageCircle } from "./icons";
 
 const eventos = [
     {

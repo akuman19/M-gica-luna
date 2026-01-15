@@ -8,6 +8,7 @@ import Gallery from "@/components/Gallery";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import eventHeroImage from "@/assets/gallery-imported-2.jpg";
 
 const Eventos = () => {
     useEffect(() => {
@@ -24,7 +25,7 @@ const Eventos = () => {
                 <div
                     className="absolute inset-0 bg-cover bg-center opacity-40"
                     style={{
-                        backgroundImage: `url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920&q=80')`
+                        backgroundImage: `url(${eventHeroImage})`
                     }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary" />

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Heart } from "lucide-react";
+import { Facebook, Instagram, Heart } from "./icons";
 
 const socialLinks = [
   { icon: Facebook, href: "https://www.facebook.com/glampingmagicaluna", label: "Facebook" },
@@ -11,11 +11,15 @@ const footerLinks = {
   explore: [
     { label: "Alojamientos", href: "/alojamientos" },
     { label: "Eventos", href: "/eventos" },
+    { label: "Experiencias", href: "/experiencias" },
     { label: "Galería", href: "/galeria" },
   ],
   info: [
     { label: "Sobre Nosotros", href: "/nosotros" },
     { label: "Contacto", href: "/contacto" },
+    { label: "Política de Cancelación", href: "/politicas-cancelacion" },
+    { label: "Términos y Condiciones", href: "/terminos" },
+    { label: "Política de Privacidad", href: "/privacidad" },
   ],
 };
 

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Play, X, Film } from "lucide-react";
+import { Play, X, Film } from "./icons";
 
 // Video data - Replace these with actual YouTube video IDs or URLs
 const videos = [

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown } from "./icons";
 import heroImage from "@/assets/hero-glamping.jpg";
 
 const Hero = () => {

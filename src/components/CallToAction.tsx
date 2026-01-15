@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, MessageCircle, Sparkles, ArrowRight } from "lucide-react";
+import { Calendar, MessageCircle, Sparkles, ArrowRight } from "./icons";
 
 const CallToAction = () => {
     const ref = useRef(null);

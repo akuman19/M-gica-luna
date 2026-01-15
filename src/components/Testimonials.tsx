@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, Quote } from "./icons";
 
 const testimonials = [
   {
@@ -131,8 +131,8 @@ const Testimonials = () => {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`w-3 h-3 rounded-full transition-all ${index === currentIndex
-                      ? "bg-accent w-8"
-                      : "bg-border hover:bg-muted-foreground"
+                    ? "bg-accent w-8"
+                    : "bg-border hover:bg-muted-foreground"
                     }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />

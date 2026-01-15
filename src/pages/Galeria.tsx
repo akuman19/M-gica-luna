@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import galleryHeroImage from "@/assets/gallery-imported-9.jpg";
 
 const Galeria = () => {
     useEffect(() => {
@@ -20,7 +21,7 @@ const Galeria = () => {
                 <div
                     className="absolute inset-0 bg-cover bg-center opacity-40"
                     style={{
-                        backgroundImage: `url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=1920&q=80')`
+                        backgroundImage: `url(${galleryHeroImage})`
                     }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary" />

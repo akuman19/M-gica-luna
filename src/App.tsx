@@ -8,7 +8,11 @@ import Eventos from "./pages/Eventos";
 import Alojamientos from "./pages/Alojamientos";
 import Nosotros from "./pages/Nosotros";
 import Galeria from "./pages/Galeria";
+import Experiencias from "./pages/Experiencias";
 import Contacto from "./pages/Contacto";
+import Terminos from "./pages/Terminos";
+import Privacidad from "./pages/Privacidad";
+import PoliticaCancelacion from "./pages/PoliticaCancelacion";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,8 +28,13 @@ const App = () => (
           <Route path="/eventos" element={<Eventos />} />
           <Route path="/alojamientos" element={<Alojamientos />} />
           <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/experiencias" element={<Experiencias />} />
           <Route path="/galeria" element={<Galeria />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/terminos" element={<Terminos />} />
+          <Route path="/privacidad" element={<Privacidad />} />
+          <Route path="/politicas-cancelacion" element={<PoliticaCancelacion />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

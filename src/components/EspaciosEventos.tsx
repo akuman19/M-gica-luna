@@ -9,7 +9,7 @@ import {
     Car,
     Sparkles,
     Check
-} from "lucide-react";
+} from "./icons";
 
 const features = [
     {
