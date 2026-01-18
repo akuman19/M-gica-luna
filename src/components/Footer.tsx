@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Heart } from "./icons";
+import { Facebook, Instagram, Youtube, Heart } from "./icons";
 
 const socialLinks = [
   { icon: Facebook, href: "https://www.facebook.com/glampingmagicaluna", label: "Facebook" },
   { icon: Instagram, href: "https://www.instagram.com/magicalunaoficial?igsh=MTZhbzc3dnRkOXQ5Ng==", label: "Instagram" },
+  { icon: Youtube, href: "https://www.youtube.com/@GlampingM%C3%A1gicaLuna", label: "YouTube" },
 ];
 
 const footerLinks = {
   explore: [
-    { label: "Alojamientos", href: "/alojamientos" },
+    { label: "Planes", href: "/alojamientos" },
     { label: "Eventos", href: "/eventos" },
     { label: "Experiencias", href: "/experiencias" },
     { label: "Galería", href: "/galeria" },
@@ -94,7 +95,8 @@ const Footer = () => {
             <h4 className="font-serif text-xl text-accent mb-6">Contacto Rápido</h4>
             <div className="space-y-3">
               <p className="text-primary-foreground/70 font-light">
-                Manizales, Caldas, Colombia
+                Vereda Gallinazo, a 5 min de Manizales.<br />
+                Cel: 314 664 6180 - 311 333 2886
               </p>
               <Link
                 to="/contacto"

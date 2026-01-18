@@ -5,6 +5,7 @@ import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import contactHeroImage from "@/assets/conta.jpeg";
 
 const Contacto = () => {
     useEffect(() => {
@@ -21,7 +22,7 @@ const Contacto = () => {
                 <div
                     className="absolute inset-0 bg-cover bg-center opacity-40"
                     style={{
-                        backgroundImage: `url('https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=1920&q=80')`
+                        backgroundImage: `url(${contactHeroImage})`
                     }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary" />

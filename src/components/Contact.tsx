@@ -29,7 +29,7 @@ const Contact = () => {
       // Usamos formsubmit.co para enviar el correo directamente
       // La primera vez que pruebes el formulario, te llegará un correo de confirmación a tu email
       // Debes confirmarlo para habilitar el servicio para tu dominio/email
-      const response = await fetch("https://formsubmit.co/ajax/Glampingmagicaluna@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/glampingmagicaluna1@gmail.com", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ const Contact = () => {
                   <div>
                     <div className="font-medium mb-1">Ubicación</div>
                     <div className="text-primary-foreground/70 font-light">
-                      Vereda, Gallinazo km 5 via a Termales el Otoño.<br />
+                      Vereda Gallinazo, a 5 minutos de Manizales.<br />
                       Manizales, Colombia
                     </div>
                   </div>
@@ -110,12 +110,20 @@ const Contact = () => {
                   <Phone className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-medium mb-1">Teléfono</div>
-                    <a
-                      href="tel:+573113333286"
-                      className="text-primary-foreground/70 hover:text-accent transition-colors font-light"
-                    >
-                      311 333 3286
-                    </a>
+                    <div className="flex flex-col gap-1">
+                      <a
+                        href="tel:+573146646180"
+                        className="text-primary-foreground/70 hover:text-accent transition-colors font-light"
+                      >
+                        314 664 6180
+                      </a>
+                      <a
+                        href="tel:+573113332886"
+                        className="text-primary-foreground/70 hover:text-accent transition-colors font-light"
+                      >
+                        311 333 2886
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -124,10 +132,10 @@ const Contact = () => {
                   <div>
                     <div className="font-medium mb-1">Email</div>
                     <a
-                      href="mailto:Glampingmagicaluna@gmail.com"
+                      href="mailto:glampingmagicaluna1@gmail.com"
                       className="text-primary-foreground/70 hover:text-accent transition-colors font-light"
                     >
-                      Glampingmagicaluna@gmail.com
+                      glampingmagicaluna1@gmail.com
                     </a>
                   </div>
                 </div>

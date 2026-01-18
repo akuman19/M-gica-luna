@@ -9,7 +9,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Alojamientos = () => {
     useEffect(() => {
-        document.title = "Alojamientos Glamping Mágica Luna - Domos y Cabañas de Lujo";
+        document.title = "Planes Glamping Mágica Luna - Domos y Cabañas de Lujo";
         window.scrollTo(0, 0);
     }, []);
 
@@ -42,7 +42,7 @@ const Alojamientos = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="font-serif text-5xl md:text-6xl lg:text-7xl text-primary-foreground tracking-wider font-light mb-6"
                     >
-                        Nuestros Alojamientos
+                        Nuestros Planes
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 30 }}
@@ -50,7 +50,7 @@ const Alojamientos = () => {
                         transition={{ duration: 0.8, delay: 0.4 }}
                         className="text-primary-foreground/80 text-lg md:text-xl max-w-2xl mx-auto font-light"
                     >
-                        Descubre nuestras exclusivas opciones de hospedaje diseñadas para una experiencia inmersiva en la naturaleza
+                        Descubre nuestros exclusivos planes de hospedaje diseñados para una experiencia inmersiva en la naturaleza
                     </motion.p>
                 </div>
             </section>

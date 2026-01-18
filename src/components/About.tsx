@@ -31,14 +31,10 @@ const About = () => {
 
             <div className="space-y-6 text-foreground/80 font-light leading-relaxed">
               <p className="text-lg">
-                Glamping Mágica Luna se encuentra frente a la Magia de los
-                termales. Experimenta el confort de nuestro Glamping y chalet en
-                medio de la montaña.
+                Glamping Mágica Luna se encuentra en la <strong>Vereda Gallinazo</strong>, a solo 5 minutos de Manizales y frente a la Magia de los Termales. Experimenta el confort de nuestros Chalets y Glamping en medio de la montaña.
               </p>
               <p>
-                Nuestras instalaciones cuentan con jacuzzi privado y malla
-                catamarán, espacios diseñados perfectamente para tu descanso y
-                relajación mientras disfrutas del paisaje.
+                Nuestras instalaciones cuentan con jacuzzi privado en todos los planes, y malla catamarán exclusiva en nuestro Glamping, espacios diseñados perfectamente para tu descanso y relajación mientras disfrutas del paisaje.
               </p>
               <p>
                 Estamos rodeados de naturaleza exuberante y muy cerca a la Ciudad,
@@ -79,6 +75,7 @@ const About = () => {
               <img
                 src={aboutImage}
                 alt="Glamping Mágica Luna"
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             </div>

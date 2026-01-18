@@ -6,32 +6,32 @@ import { Play, X, Film } from "./icons";
 // Video data - Replace these with actual YouTube video IDs or URLs
 const videos = [
     {
-        id: "dQw4w9WgXcQ", // Replace with actual YouTube video ID
+        id: "KsvWxywoMyA", // Video Bodas (Shorts)
         title: "Bodas en Mágica Luna",
         description: "Momentos mágicos de bodas celebradas en nuestras instalaciones",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/KsvWxywoMyA/hqdefault.jpg",
         category: "Bodas",
     },
     {
-        id: "dQw4w9WgXcQ", // Replace with actual YouTube video ID
-        title: "Eventos Empresariales",
-        description: "Congresos, reuniones y celebraciones corporativas",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        category: "Empresarial",
-    },
-    {
-        id: "dQw4w9WgXcQ", // Replace with actual YouTube video ID
-        title: "Quince Años Inolvidables",
-        description: "Celebraciones de XV años llenas de magia y elegancia",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+        id: "QCvKQ8AHxTg", // Video XV Años REAL 2
+        title: "XV de Ensueño",
+        description: "Convierte tus quince años en una experiencia inolvidable con ambientes únicos",
+        thumbnail: "https://img.youtube.com/vi/QCvKQ8AHxTg/hqdefault.jpg",
         category: "XV Años",
     },
     {
-        id: "dQw4w9WgXcQ", // Replace with actual YouTube video ID
-        title: "Nuestras Instalaciones",
-        description: "Recorrido por los espacios de Mágica Luna",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        category: "Instalaciones",
+        id: "clST6GWilr8", // Video XV Años REAL
+        title: "Quince Años Inolvidables",
+        description: "Celebraciones de XV años llenas de magia y elegancia",
+        thumbnail: "https://img.youtube.com/vi/clST6GWilr8/hqdefault.jpg",
+        category: "XV Años",
+    },
+    {
+        id: "Rvz6L2IYSC4",
+        title: "Eventos Empresariales",
+        description: "Congresos, reuniones y celebraciones corporativas",
+        thumbnail: "https://img.youtube.com/vi/Rvz6L2IYSC4/hqdefault.jpg",
+        category: "Empresarial",
     },
 ];
 
@@ -152,9 +152,11 @@ const VideosEventos = () => {
                                 {/* Video Thumbnail */}
                                 <div className="relative aspect-video rounded-2xl overflow-hidden shadow-elevated">
                                     {/* Thumbnail Image */}
-                                    <div
-                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                                        style={{ backgroundImage: `url(${video.thumbnail})` }}
+                                    <img
+                                        src={video.thumbnail}
+                                        alt={video.title}
+                                        loading="lazy"
+                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
 
                                     {/* Overlay */}

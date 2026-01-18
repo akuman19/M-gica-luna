@@ -10,34 +10,44 @@ import {
 
 const faqs = [
   {
-    question: "¿Qué incluye la tarifa de alojamiento?",
+    question: "¿Qué incluyen los planes?",
     answer:
-      "Todas nuestras tarifas incluyen desayuno gourmet, acceso a senderos privados, área de fogata con leña, Wi-Fi en zonas comunes, estacionamiento privado, y amenidades de baño premium. Las actividades como yoga, masajes y cenas especiales tienen un costo adicional.",
+      "Nuestros planes incluyen un burbujeante jacuzzi privado con espuma y agua caliente para tu disfrute. Los espacios son totalmente privados en contacto directo con la naturaleza, la luna y las estrellas. Se entregan con toallas, champú y jabón.",
   },
   {
-    question: "¿Es necesario traer equipo de camping?",
+    question: "¿El desayuno está incluido?",
     answer:
-      "No es necesario. Glamping Mágica Luna es un glamping de lujo, por lo que todos los alojamientos están completamente equipados con camas premium, ropa de cama de alta calidad, toallas, y todo lo necesario para una estadía confortable.",
+      "La tarifa no incluye desayuno. Sin embargo, justo a la entrada contamos con un restaurante externo aliado donde puedes disfrutar de un delicioso desayuno campesino por solo $14.000. También hay otras opciones gastronómicas en el sector.",
+  },
+  {
+    question: "¿Reciben mascotas?",
+    answer:
+      "¡Sí! Somos Pet Friendly. En Mágica Luna tus mascotas son bienvenidas para que disfruten contigo de la naturaleza.",
+  },
+  {
+    question: "¿Puedo llevar mi propia comida y bebidas?",
+    answer:
+      "¡Claro que sí! Puedes traer lo que desees, desde comestibles hasta licor, para acompañar tu momento de relajación en nuestras instalaciones.",
   },
   {
     question: "¿Cuál es la política de cancelación?",
     answer:
-      "Ofrecemos reembolso completo para cancelaciones realizadas con más de 7 días de anticipación. Cancelaciones entre 3-7 días reciben un crédito para futuras reservas. Cancelaciones con menos de 3 días no son reembolsables.",
+      "De acuerdo a nuestra política de reserva, no se realizan devoluciones de anticipos en caso de cancelación.",
   },
   {
-    question: "¿Aceptan mascotas?",
+    question: "¿Tienen costo el parqueadero y el acceso a termales?",
     answer:
-      "Sí, somos pet-friendly en algunos de nuestros alojamientos. Por favor, consulta al momento de reservar cuáles opciones permiten mascotas. Hay un cargo adicional de limpieza de $50.000 por noche.",
+      "El parqueadero es totalmente gratuito para nuestros huéspedes. Para los termales, tenemos un convenio especial con 'La Magia de los Termales' (ubicados justo al frente). Nuestros clientes pagan solo $55.000 (precio normal $70.000).",
   },
   {
-    question: "¿Hay electricidad en los alojamientos?",
+    question: "¿Cuáles son los horarios de Check-in y Check-out?",
     answer:
-      "Sí, todos nuestros alojamientos cuentan con electricidad 24/7, enchufes para cargar dispositivos, iluminación ambiental, y climatización en el caso de los domos y cabañas.",
+      "El Check-in (Entrada) es a partir de las 3:00 PM y la salida (Check-out) debe realizarse a las 12:00 del medio día del día siguiente.",
   },
   {
-    question: "¿Cuál es la edad mínima para hospedarse?",
+    question: "¿Todos los alojamientos tienen jacuzzi?",
     answer:
-      "Aceptamos huéspedes de todas las edades. Sin embargo, los menores de 18 años deben estar acompañados por un adulto responsable. Tenemos políticas especiales para parejas que desean una experiencia romántica sin niños.",
+      "Sí, todos nuestros planes actuales (Chalets y Glamping) cuentan con su propio jacuzzi privado para garantizarte una experiencia de máximo relax.",
   },
 ];
 

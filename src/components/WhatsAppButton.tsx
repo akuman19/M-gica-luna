@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "./icons";
 
-const WHATSAPP_NUMBER = "573113333286"; // Número de WhatsApp sin + ni espacios
+const WHATSAPP_NUMBER = "573113332886"; // Número de WhatsApp sin + ni espacios
 const WHATSAPP_MESSAGE = "Hola! Me interesa conocer más sobre Hotel Glamping Magica Luna y hacer una reserva.";
 
 const WhatsAppButton = () => {

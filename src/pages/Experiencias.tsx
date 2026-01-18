@@ -7,23 +7,23 @@ import CallToAction from "@/components/CallToAction";
 import {
     Flame,
     UtensilsCrossed,
-    TreePine,
+    Bath,
     Wine,
-    Bird,
-    Coffee,
+    Building2,
     Heart,
     Footprints
 } from "@/components/icons";
 
 // Import images from assets - using the imported images as placeholders/actuals where appropriate
 import romanticImage from "@/assets/gallery-imported-9.jpg";
-import picnicImage from "@/assets/gallery-imported-1.jpg";
-import campfireImage from "@/assets/gallery-1.jpg";
-import foodImage from "@/assets/gallery-3.jpg";
-import natureImage from "@/assets/gallery-imported-3.jpg";
-import birdsImage from "@/assets/gallery-imported-11.jpg";
-import coffeeImage from "@/assets/gallery-imported-5.jpg";
+import picnicImage from "@/assets/gallery-imported-2.jpg";
+import campfireImage from "@/assets/gallery-imported-1.jpg";
+import foodImage from "@/assets/gallery-imported-3.jpg";
+import hikingImage from "@/assets/gallery-imported-5.jpg";
+import birdsImage from "@/assets/gallery-imported-12.jpg";
+import salonImage from "@/assets/gallery-imported-1.jpg";
 import relaxImage from "@/assets/gallery-imported-13.jpg";
+import natureImage from "@/assets/gallery-imported-3.jpg";
 
 const experiences = [
     {
@@ -59,36 +59,28 @@ const experiences = [
         includes: ["Desayuno incluido en tarifa", "Servicio a la habitación", "Opciones vegetarianas", "Café de origen ilimitado"]
     },
     {
+        icon: Building2,
+        title: "Salón Luz de Luna",
+        description: "Nuestro salón principal con capacidad para 400 personas, ideal para grandes banquetes, bodas y eventos corporativos con vistas espectaculares.",
+        image: salonImage,
+        longDescription: "El Salón Luz de Luna es la joya de nuestras instalaciones para eventos en Mágica Luna. Con una arquitectura moderna que combina ladrillo y grandes ventanales, este espacio ofrece una capacidad de hasta 400 invitados. Diseñado para ofrecer elegancia y confort, permite disfrutar de la majestuosidad de la naturaleza circundante mientras celebras tus momentos más importantes con tecnología de punta en audio y video.",
+        includes: ["Capacidad 400 personas", "Sonido de alta fidelidad", "Iluminación profesional adaptable", "Vista panorámica al entorno natural"]
+    },
+    {
         icon: Footprints,
-        title: "Caminatas Ecológicas",
-        description: "Explora los senderos que rodean nuestro glamping. Rutas seguras para conectar con la flora y fauna del bosque andino.",
-        image: relaxImage,
-        longDescription: "Mágica Luna está inmerso en un entorno privilegiado. Contamos con senderos señalizados de diferentes dificultades que te llevarán a través del bosque nativo, miradores con vistas al valle y pequeñas quebradas. Puedes realizar las caminatas por tu cuenta o solicitar un guía para aprender más sobre la biodiversidad local.",
-        includes: ["Mapas de senderos", "Recomendaciones de ruta", "Guía (con reserva previa)", "Avistamiento de flora"]
+        title: "Senderos y Naturaleza",
+        description: "Recorre nuestros senderos privados rodeados de flores y disfruta de las vistas más espectaculares de la montaña.",
+        image: hikingImage,
+        longDescription: "Explora la belleza de nuestro entorno caminando por senderos diseñados para conectar con la paz de la montaña. Un recorrido por jardines exuberantes donde podrás apreciar la flora local y capturar momentos inolvidables en nuestros miradores estratégicos con el valle de fondo.",
+        includes: ["Caminata por senderos privados", "Vistas panorámicas al valle", "Acceso a miradores", "Puntos fotográficos"]
     },
     {
-        icon: Bird,
-        title: "Avistamiento de Aves",
-        description: "Un paraíso para los amantes de las aves. Observa colibríes, tangaras y otras especies coloridas en su hábitat natural.",
-        image: birdsImage,
-        longDescription: "La región es hogar de una gran diversidad de aves. Desde la terraza de tu alojamiento o en nuestros comederos especiales, podrás observar y fotografiar diversas especies de colibríes, barranqueros y tangaras. Es una actividad relajante y fascinante que te conecta con la vida silvestre sin salir de la comodidad del hotel.",
-        includes: ["Guía de aves locales", "Préstamo de binoculares", "Áreas de avistamiento", "Comederos de colibríes"]
-    },
-    {
-        icon: Coffee,
-        title: "Cultura Cafetera",
-        description: "Vive la experiencia del café más suave del mundo. Visita fincas cercanas y aprende sobre el proceso del grano a la taza.",
-        image: coffeeImage,
-        longDescription: "Estando en el corazón del Eje Cafetero, te ofrecemos la oportunidad de conocer de cerca la cultura del café. Organizamos tours a fincas tradicionales cercanas donde podrás recolectar granos, ver el proceso de beneficiadero, secado y tostión, finalizando con una cata profesional para aprender a distinguir los mejores aromas.",
-        includes: ["Transporte a finca cafetera", "Tour guiado interactivo", "Degustación de café", "Souvenir de café"]
-    },
-    {
-        icon: TreePine,
-        title: "Conexión Natural",
-        description: "Espacios de meditación y yoga. Encuentra tu centro respirando el aire puro de la montaña.",
+        icon: Bath,
+        title: "Jacuzzi Espumoso & Relajación",
+        description: "Disfruta de un baño relajante con burbujas y agua climatizada en la privacidad de tu terraza, con las mejores vistas de las montañas.",
         image: natureImage,
-        longDescription: "Disponemos de plataformas de madera integradas en el bosque ideales para la práctica de yoga, meditación o simplemente lectura tranquila. El sonido del agua y el canto de los pájaros crean la banda sonora perfecta para renovar tu energía. Si lo deseas, podemos coordinar sesiones privadas con instructores certificados.",
-        includes: ["Esterillas de yoga", "Zonas de silencio", "Sesiones guiadas (reserva)", "Té de hierbas relajante"]
+        longDescription: "Sumérgete en una experiencia de relajación total en nuestros jacuzzis privados. Diseñados para ofrecerte el máximo confort bajo el cielo abierto, cada sesión incluye abundante espuma, agua a la temperatura perfecta y una vista inigualable del valle. Es el complemento ideal para una tarde romántica o un momento de paz profunda después de explorar los alrededores.",
+        includes: ["Jacuzzi con agua caliente", "Sales y espuma relajante", "Dos copas de vino", "Vistas panorámicas"]
     }
 ];
 
@@ -160,6 +152,7 @@ const Experiencias = () => {
                                         <img
                                             src={exp.image}
                                             alt={exp.title}
+                                            loading="lazy"
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                         />
                                     </div>

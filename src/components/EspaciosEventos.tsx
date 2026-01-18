@@ -152,7 +152,12 @@ const EspaciosEventos = () => {
                                 </p>
 
                                 <div className="space-y-3">
-                                    {["Capacidad hasta 500 personas", "Áreas interiores y exteriores", "Personalización total"].map((item, i) => (
+                                    {[
+                                        "Salón Luz de Luna (400 personas)",
+                                        "Salón Cristal (350 personas)",
+                                        "Áreas exteriores y senderos",
+                                        "Parqueadero privado"
+                                    ].map((item, i) => (
                                         <motion.div
                                             key={item}
                                             initial={{ opacity: 0, x: 20 }}

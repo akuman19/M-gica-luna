@@ -8,7 +8,7 @@ import Gallery from "@/components/Gallery";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import eventHeroImage from "@/assets/gallery-imported-2.jpg";
+import eventHeroImage from "@/assets/gallery-imported-1.jpg";
 
 const Eventos = () => {
     useEffect(() => {

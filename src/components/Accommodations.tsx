@@ -1,65 +1,79 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Users, Bed, Bath, Eye, X, MessageCircle, Check } from "./icons";
-import tentImage from "@/assets/accommodation-tent.jpg";
-import domeImage from "@/assets/accommodation-dome.jpg";
-import cabinImage from "@/assets/accommodation-cabin.jpg";
+import { useRef, useState, useEffect } from "react";
+import { Users, Bed, Bath, Eye, X, MessageCircle, Check, ChevronLeft, ChevronRight } from "./icons";
+import domeImage from "@/assets/hero-glamping.jpg";
 
-const WHATSAPP_NUMBER = "573113333286";
+// Plan 1 Images
+import chalet1_1 from "@/assets/chalet1/chalet1 (1).jpeg";
+import chalet1_2 from "@/assets/chalet1/chalet1 (2).jpeg";
+import chalet1_3 from "@/assets/chalet1/chalet1 (3).jpeg";
+
+// Plan 2 Images
+import chalet2_1 from "@/assets/chalet1/chalet1 (4).jpeg";
+import chalet2_2 from "@/assets/chalet1/chalet1 (5).jpeg";
+import chalet2_3 from "@/assets/chalet1/chalet1 (6).jpeg";
+import chalet2_4 from "@/assets/chalet1/chalet1 (7).jpeg";
+import chalet2_5 from "@/assets/chalet1/chalet1 (8).jpeg";
+import chalet2_6 from "@/assets/chalet1/chalet1 (9).jpeg";
+import chalet2_7 from "@/assets/chalet1/chalet1(1).jpeg";
+import chalet2_8 from "@/assets/chalet1/chalet1(2).jpeg";
+import chalet2_9 from "@/assets/chalet1/chalet1 (1).jpeg";
+
+const WHATSAPP_NUMBER = "573113332886";
 
 const accommodations = [
   {
     id: 1,
-    name: "Chalet (Plan 1 y 2)",
-    image: cabinImage,
+    name: "Chalet con terraza (Plan 1)",
+    images: [chalet2_1, chalet2_2, chalet2_3, chalet2_4, chalet2_5, chalet2_6, chalet2_7, chalet2_8, chalet2_9],
     price: 350000,
     description:
-      "Chalet exclusivo para pareja con jacuzzi privado. El refugio romántico perfecto.",
+      "Acogedor chalet con terraza privada, jacuzzi espumoso y capacidad para 8 personas.",
     fullDescription:
-      "Nuestros Chalets (Plan 1 y 2) están diseñados pensando en el romance y la privacidad. Cada chalet cuenta con un jacuzzi privado para disfrutar en pareja, cama king size y una atmósfera acogedora rodeada de naturaleza. Es la opción ideal para celebrar aniversarios o simplemente escapar de la rutina con tu persona favorita.",
-    capacity: 2,
-    beds: 1,
+      "Nuestro Plan 1 ofrece la calidez de un chalet con terraza privada y jacuzzi burbujeante con espuma y agua caliente. Un espacio íntimo y rodeado de naturaleza, ideal para grupos de hasta 8 personas que buscan desconexión total.",
+    capacity: 8,
+    beds: 2,
     baths: 1,
-    features: ["Jacuzzi Privado", "Para Parejas", "Privacidad Total", "Agua Caliente"],
-    amenities: ["Wifi gratis", "Desayuno incluido", "Minibar", "Parqueadero", "TV Cable"],
+    features: ["Una Terraza", "Jacuzzi Privado", "Capacidad 8 personas", "Total Privacidad"],
+    amenities: ["Toallas", "Champú y Jabón", "Minibar", "Parqueadero Gratis", "TV Cable"],
   },
   {
     id: 2,
-    name: "Glamping (Plan 3)",
-    image: domeImage,
-    price: 320000,
+    name: "Chalet con dos terrazas (Plan 2)",
+    images: [chalet1_1, chalet1_2, chalet1_3],
+    price: 350000,
     description:
-      "Glamping para pareja con jacuzzi privado y espectacular malla catamarán.",
+      "Amplio chalet con dos terrazas, jacuzzi privado y espectacular vista a las montañas.",
     fullDescription:
-      "El Plan 3 ofrece una experiencia de Glamping inolvidable. Disfruta de una noche mágica con tu pareja en una estructura única que cuenta con jacuzzi privado para relajarte y una malla catamarán donde podrás acostarte a observar el cielo y sentirte suspendido en la naturaleza.",
-    capacity: 2,
-    beds: 1,
+      "El Plan 2 destaca por su exclusividad y amplitud con dos terrazas privadas. Disfruta de la mejor vista de la vereda Gallinazo desde tu jacuzzi con agua caliente y espuma. Capacidad para grupos de hasta 8 personas con total comodidad.",
+    capacity: 8,
+    beds: 2,
     baths: 1,
-    features: ["Jacuzzi", "Malla Catamarán", "Vista Panorámica", "Diseño Único"],
-    amenities: ["Wifi gratis", "Desayuno incluido", "Malla de descanso", "Baño privado"],
+    features: ["Dos Terrazas", "Jacuzzi Privado", "Vista Panorámica", "Máximo Confort"],
+    amenities: ["Toallas", "Champú y Jabón", "Minibar", "Parqueadero Gratis", "TV Cable"],
   },
   {
     id: 3,
-    name: "Cabaña (Plan 4)",
-    image: tentImage,
-    price: 160000,
+    name: "Glamping (Plan 3)",
+    images: [domeImage],
+    price: 320000,
     description:
-      "Cabaña acogedora y confortable, la opción ideal para disfrutar la naturaleza.",
+      "Glamping para pareja con jacuzzi burbujeante y espectacular malla catamarán.",
     fullDescription:
-      "Nuestra Cabaña (Plan 4) ofrece todo lo necesario para una estadía placentera a un precio excelente. Es un espacio íntimo y acogedor, perfecto para descansar y conectar con el entorno natural de Mágica Luna sin complicaciones.",
+      "El Plan 3 es la combinación perfecta de lujo y naturaleza para parejas. Incluye jacuzzi burbujeante con espuma y agua caliente, además de una malla catamarán exclusiva para relajarte bajo las estrellas. Cuenta con un camarote pequeño para un niño en caso de ser necesario (sin costo adicional).",
     capacity: 2,
     beds: 1,
     baths: 1,
-    features: ["Económica", "Acogedora", "Entorno Natural", "Tranquilidad"],
-    amenities: ["Wifi gratis", "Desayuno incluido", "Baño con ducha", "Zona verde"],
+    features: ["Jacuzzi con Espuma", "Malla Catamarán", "Opción Niño Gratis", "Diseño Único"],
+    amenities: ["Toallas", "Champú y Jabón", "Malla de descanso", "Parqueadero Gratis"],
   },
 ];
 
 interface Accommodation {
   id: number;
   name: string;
-  image: string;
+  images: string[];
   price: number;
   description: string;
   fullDescription: string;
@@ -69,6 +83,88 @@ interface Accommodation {
   features: string[];
   amenities: string[];
 }
+
+const ImageSlider = ({ images, name, height = "h-64" }: { images: string[], name: string, height?: string }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 300 : -300,
+      opacity: 0
+    })
+  };
+
+  const paginate = (newDirection: number) => {
+    if (images.length <= 1) return;
+    setDirection(newDirection);
+    setCurrentIndex((prevIndex) => {
+      let nextIndex = prevIndex + newDirection;
+      if (nextIndex < 0) nextIndex = images.length - 1;
+      if (nextIndex >= images.length) nextIndex = 0;
+      return nextIndex;
+    });
+  };
+
+  if (images.length === 0) return <div className={`${height} bg-muted flex items-center justify-center`}>No image</div>;
+
+  return (
+    <div className={`relative ${height} overflow-hidden group/slider`}>
+      <AnimatePresence initial={false} custom={direction}>
+        <motion.img
+          key={currentIndex}
+          src={images[currentIndex]}
+          alt={`${name} - ${currentIndex + 1}`}
+          custom={direction}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{
+            x: { type: "spring", stiffness: 300, damping: 30 },
+            opacity: { duration: 0.2 }
+          }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </AnimatePresence>
+
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={(e) => { e.stopPropagation(); paginate(-1); }}
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/30 text-white flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-opacity hover:bg-black/50 z-10"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); paginate(1); }}
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/30 text-white flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-opacity hover:bg-black/50 z-10"
+          >
+            <ChevronRight size={20} />
+          </button>
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+            {images.map((_, idx) => (
+              <div
+                key={idx}
+                className={`w-1.5 h-1.5 rounded-full transition-all ${idx === currentIndex ? "bg-accent scale-125" : "bg-white/50"}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
 
 const Accommodations = () => {
   const ref = useRef(null);
@@ -104,7 +200,7 @@ const Accommodations = () => {
             className="text-center mb-16"
           >
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-4">
-              Nuestros Alojamientos
+              Nuestros Planes
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Elige tu refugio perfecto entre nuestras opciones únicas
@@ -122,14 +218,11 @@ const Accommodations = () => {
                 onMouseLeave={() => setHoveredId(null)}
                 className="group bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500"
               >
-                {/* Image */}
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={acc.image}
-                    alt={acc.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Image Slider */}
+                <div className="relative">
+                  <ImageSlider images={acc.images} name={acc.name} />
+
+                  <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-primary-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                   {/* View Button */}
                   <motion.button
@@ -137,7 +230,7 @@ const Accommodations = () => {
                     animate={hoveredId === acc.id ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.3 }}
                     onClick={() => openModal(acc)}
-                    className="absolute bottom-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-accent text-accent-foreground text-sm tracking-wider flex items-center gap-2 hover:bg-accent/90 transition-colors cursor-pointer"
+                    className="absolute bottom-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-accent text-accent-foreground text-sm tracking-wider flex items-center gap-2 hover:bg-accent/90 transition-colors cursor-pointer z-20"
                   >
                     <Eye size={16} />
                     Ver Detalles
@@ -214,17 +307,13 @@ const Accommodations = () => {
               onClick={(e) => e.stopPropagation()}
               className="bg-card rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto"
             >
-              {/* Modal Header Image */}
-              <div className="relative h-64 md:h-80">
-                <img
-                  src={selectedAccommodation.image}
-                  alt={selectedAccommodation.name}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 to-transparent" />
+              {/* Modal Slider */}
+              <div className="relative">
+                <ImageSlider images={selectedAccommodation.images} name={selectedAccommodation.name} height="h-64 md:h-96" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 to-transparent pointer-events-none" />
                 <button
                   onClick={closeModal}
-                  className="absolute top-4 right-4 p-2 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors"
+                  className="absolute top-4 right-4 p-2 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors z-20"
                 >
                   <X size={24} />
                 </button>
@@ -312,4 +401,5 @@ const Accommodations = () => {
 };
 
 export default Accommodations;
+
 

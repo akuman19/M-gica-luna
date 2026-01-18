@@ -40,7 +40,7 @@ const EventosMagicaLuna = () => {
 
     const handleWhatsAppClick = () => {
         const message = encodeURIComponent("¡Hola! Me gustaría cotizar un evento en Mágica Luna. ¿Podrían darme más información?");
-        window.open(`https://wa.me/573113333286?text=${message}`, "_blank");
+        window.open(`https://wa.me/573113332886?text=${message}`, "_blank");
     };
 
     return (
@@ -170,7 +170,7 @@ const EventosMagicaLuna = () => {
                         onClick={handleWhatsAppClick}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-full font-medium shadow-lg hover:shadow-xl hover:from-green-600 hover:to-green-700 transition-all duration-300"
+                        className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-purple-800 text-white px-8 py-4 rounded-full font-medium shadow-lg hover:shadow-xl hover:from-purple-700 hover:to-purple-900 transition-all duration-300"
                     >
                         <MessageCircle className="w-5 h-5" />
                         <span>Cotiza tu evento por WhatsApp</span>
