@@ -97,17 +97,9 @@ const VideosEventos = () => {
     return (
         <>
             <section className="py-24 md:py-32 bg-gradient-to-b from-secondary to-background relative overflow-hidden">
-                {/* Decorative Elements */}
-                <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-                    className="absolute top-20 right-10 w-64 h-64 border border-accent/10 rounded-full"
-                />
-                <motion.div
-                    animate={{ rotate: -360 }}
-                    transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-                    className="absolute bottom-20 left-10 w-48 h-48 border border-primary/10 rounded-full"
-                />
+                {/* Decorative Elements - Static for performance */}
+                <div className="absolute top-20 right-10 w-64 h-64 border border-accent/10 rounded-full" />
+                <div className="absolute bottom-20 left-10 w-48 h-48 border border-primary/10 rounded-full" />
 
                 <div className="container mx-auto px-6 relative z-10">
                     {/* Header */}
@@ -118,19 +110,11 @@ const VideosEventos = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6"
-                        >
-                            <Film className="w-4 h-4" />
-                            <span className="text-sm font-medium tracking-wider">GALERÍA DE VIDEOS</span>
-                        </motion.div>
 
-                        <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-6 leading-tight">
-                            Nuestros{" "}
-                            <span className="text-gradient-gold">Eventos en Acción</span>
+
+                        <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-primary mb-8 leading-[1.1]">
+                            Nuestros <br />
+                            <span className="text-accent">Eventos en Acción</span>
                         </h2>
 
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">

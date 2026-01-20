@@ -176,4 +176,8 @@
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
+
+  .shadow-glow-accent {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.4);
+  }
 }

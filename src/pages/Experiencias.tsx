@@ -15,15 +15,13 @@ import {
 } from "@/components/icons";
 
 // Import images from assets - using the imported images as placeholders/actuals where appropriate
-import romanticImage from "@/assets/gallery-imported-9.jpg";
-import picnicImage from "@/assets/gallery-imported-2.jpg";
-import campfireImage from "@/assets/gallery-imported-1.jpg";
-import foodImage from "@/assets/gallery-imported-3.jpg";
-import hikingImage from "@/assets/gallery-imported-5.jpg";
-import birdsImage from "@/assets/gallery-imported-12.jpg";
-import salonImage from "@/assets/gallery-imported-1.jpg";
-import relaxImage from "@/assets/gallery-imported-13.jpg";
-import natureImage from "@/assets/gallery-imported-3.jpg";
+import romanticImage from "@/assets/experiencia/Pareja en maya catamarán .jpg";
+import picnicImage from "@/assets/experiencia/PHOTO-2026-01-08-10-06-11.jpg";
+import campfireImage from "@/assets/experiencia/PHOTO-2026-01-08-10-06-12 6.jpg";
+import foodImage from "@/assets/experiencia/PHOTO-2026-01-08-10-06-11 2.jpg";
+import salonImage from "@/assets/Salonluzdeluna.jpg";
+import hikingImage from "@/assets/experiencia/PHOTO-2026-01-08-10-06-13.jpg";
+import natureImage from "@/assets/experiencia/Jacuzzi.jpg";
 
 const experiences = [
     {

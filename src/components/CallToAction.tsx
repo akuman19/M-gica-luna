@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, MessageCircle, Sparkles, ArrowRight } from "./icons";
+import { Calendar, MessageCircle, ArrowRight } from "./icons";
 
 const CallToAction = () => {
     const ref = useRef(null);
@@ -18,152 +18,83 @@ const CallToAction = () => {
     };
 
     return (
-        <section className="py-24 md:py-32 relative overflow-hidden">
+        <section className="py-20 md:py-32 relative overflow-hidden bg-primary">
             {/* Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-primary" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark/95 to-primary" />
 
-            {/* Animated Background Pattern */}
-            <div className="absolute inset-0 opacity-20">
-                <motion.div
-                    animate={{
-                        backgroundPosition: ["0% 0%", "100% 100%"],
-                    }}
-                    transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        repeatType: "reverse",
-                    }}
-                    className="w-full h-full"
+            {/* Background Texture - Unified with Image 0 Aesthetic */}
+            <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
+                <div className="w-full h-full"
                     style={{
-                        backgroundImage: `radial-gradient(circle at center, hsl(var(--accent)) 1px, transparent 1px)`,
-                        backgroundSize: "60px 60px",
+                        backgroundImage: `radial-gradient(circle at 2px 2px, hsl(var(--accent)) 1px, transparent 0)`,
+                        backgroundSize: "32px 32px",
                     }}
                 />
             </div>
 
-            {/* Floating Orbs */}
-            <motion.div
-                animate={{
-                    y: [0, -40, 0],
-                    x: [0, 30, 0],
-                    scale: [1, 1.2, 1],
-                }}
-                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-10 right-[20%] w-72 h-72 bg-accent/20 rounded-full blur-3xl"
-            />
-            <motion.div
-                animate={{
-                    y: [0, 30, 0],
-                    x: [0, -20, 0],
-                    scale: [1, 1.3, 1],
-                }}
-                transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-10 left-[20%] w-64 h-64 bg-accent/15 rounded-full blur-3xl"
-            />
-            <motion.div
-                animate={{
-                    y: [0, -20, 0],
-                    scale: [1, 1.1, 1],
-                }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-dark/50 rounded-full blur-3xl"
-            />
+            {/* Static Decorative Orbs - High performance Premium feel */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
             <div className="container mx-auto px-6 relative z-10">
                 <motion.div
                     ref={ref}
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.6 }}
                     className="max-w-4xl mx-auto text-center"
                 >
-                    {/* Badge */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-sm text-accent px-5 py-2.5 rounded-full mb-8"
-                    >
-                        <Sparkles className="w-5 h-5" />
-                        <span className="font-medium tracking-wider">TU MOMENTO ESPECIAL</span>
-                    </motion.div>
 
-                    {/* Main Title */}
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary-foreground mb-6 leading-tight"
-                    >
-                        Vive tu evento o experiencia en un{" "}
+
+                    {/* Main Title - Matches Image 0 Aesthetic */}
+                    <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-primary-foreground mb-8 leading-[1.1]">
+                        Vive tu evento o experiencia en un <br />
                         <span className="text-accent">lugar mágico</span>
-                    </motion.h2>
+                    </h2>
 
                     {/* Subtitle */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                        className="text-xl text-primary-foreground/80 mb-12 font-light max-w-2xl mx-auto"
-                    >
+                    <p className="text-lg md:text-xl text-primary-foreground/70 mb-12 font-light max-w-2xl mx-auto leading-relaxed">
                         Cuéntanos tu idea y nosotros la convertimos en una experiencia inolvidable.
-                    </motion.p>
+                    </p>
 
                     {/* CTA Buttons */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.8, delay: 0.5 }}
-                        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-                    >
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                         {/* Reservar Experiencia Button */}
-                        <motion.button
+                        <button
                             onClick={handleReservaClick}
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="group relative inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-4 rounded-full font-semibold shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 transition-all duration-300 overflow-hidden"
+                            className="w-full sm:w-auto flex items-center justify-center gap-3 bg-accent text-accent-foreground px-10 py-4 rounded-full font-bold shadow-glow-accent hover:scale-105 active:scale-95 transition-all duration-300"
                         >
-                            {/* Shine Effect */}
-                            <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700" />
-
-                            <Calendar className="w-5 h-5 relative z-10" />
-                            <span className="relative z-10">Reservar Experiencia</span>
-                            <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-                        </motion.button>
+                            <Calendar size={20} />
+                            <span>Reservar Experiencia</span>
+                            <ArrowRight size={20} />
+                        </button>
 
                         {/* Cotizar Evento Button */}
-                        <motion.button
+                        <button
                             onClick={handleCotizarClick}
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="group relative inline-flex items-center gap-3 bg-transparent border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold hover:bg-accent/10 transition-all duration-300"
+                            className="w-full sm:w-auto flex items-center justify-center gap-3 bg-transparent border-2 border-accent text-accent px-10 py-4 rounded-full font-bold hover:bg-accent/10 hover:scale-105 active:scale-95 transition-all duration-300"
                         >
-                            <MessageCircle className="w-5 h-5" />
+                            <MessageCircle size={20} />
                             <span>Cotizar Evento</span>
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </motion.button>
-                    </motion.div>
+                            <ArrowRight size={20} />
+                        </button>
+                    </div>
 
                     {/* Trust Indicators */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={isInView ? { opacity: 1 } : {}}
-                        transition={{ duration: 0.8, delay: 0.7 }}
-                        className="mt-12 flex flex-wrap justify-center gap-8 text-primary-foreground/60 text-sm"
-                    >
-                        <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-accent" />
-                            <span>Respuesta en menos de 1 hora</span>
+                    <div className="mt-16 flex flex-wrap justify-center gap-x-10 gap-y-4 text-primary-foreground/50 text-xs font-medium uppercase tracking-widest">
+                        <div className="flex items-center gap-3">
+                            <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_hsl(var(--accent))]" />
+                            <span>Respuesta rápida</span>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-accent" />
+                        <div className="flex items-center gap-3">
+                            <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_hsl(var(--accent))]" />
                             <span>Asesoría personalizada</span>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-accent" />
+                        <div className="flex items-center gap-3">
+                            <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_hsl(var(--accent))]" />
                             <span>Sin compromiso</span>
                         </div>
-                    </motion.div>
+                    </div>
                 </motion.div>
             </div>
         </section>

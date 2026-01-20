@@ -77,8 +77,9 @@ const Experiences = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-4">
-            Experiencias <span className="text-gradient-gold">Adicionales</span>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-primary mb-8 leading-[1.1]">
+            Experiencias <br />
+            <span className="text-accent">Adicionales</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Complementa tu estadía o evento con experiencias diseñadas para conectar, celebrar y recordar.

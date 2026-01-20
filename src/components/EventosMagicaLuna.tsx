@@ -45,30 +45,10 @@ const EventosMagicaLuna = () => {
 
     return (
         <section id="eventos" className="py-24 md:py-32 bg-gradient-to-b from-primary/5 via-background to-background relative overflow-hidden">
-            {/* Decorative Elements */}
+            {/* Static Decorative Elements - Optimized for mobile performance */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-                <motion.div
-                    animate={{
-                        rotate: 360,
-                        scale: [1, 1.1, 1]
-                    }}
-                    transition={{
-                        rotate: { duration: 60, repeat: Infinity, ease: "linear" },
-                        scale: { duration: 8, repeat: Infinity, ease: "easeInOut" }
-                    }}
-                    className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-3xl"
-                />
-                <motion.div
-                    animate={{
-                        rotate: -360,
-                        scale: [1, 1.2, 1]
-                    }}
-                    transition={{
-                        rotate: { duration: 50, repeat: Infinity, ease: "linear" },
-                        scale: { duration: 10, repeat: Infinity, ease: "easeInOut" }
-                    }}
-                    className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-3xl"
-                />
+                <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-[100px]" />
+                <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-[100px]" />
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
@@ -80,19 +60,11 @@ const EventosMagicaLuna = () => {
                     transition={{ duration: 0.8 }}
                     className="text-center mb-16"
                 >
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6"
-                    >
-                        <Sparkles className="w-4 h-4" />
-                        <span className="text-sm font-medium tracking-wider">CELEBRA CON NOSOTROS</span>
-                    </motion.div>
 
-                    <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-6 leading-tight">
-                        Eventos{" "}
-                        <span className="text-gradient-gold">Mágica Luna</span>
+
+                    <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-primary mb-8 leading-[1.1]">
+                        Eventos <br />
+                        <span className="text-accent">Mágica Luna</span>
                     </h2>
 
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
@@ -144,7 +116,7 @@ const EventosMagicaLuna = () => {
                                     <evento.icon className={`w-8 h-8 ${evento.iconColor}`} />
                                 </motion.div>
 
-                                <h3 className="font-serif text-2xl text-primary mb-3 group-hover:text-gradient-gold transition-all duration-300">
+                                <h3 className="font-serif text-2xl text-primary mb-3 group-hover:text-accent transition-all duration-300">
                                     {evento.title}
                                 </h3>
 

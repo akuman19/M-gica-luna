@@ -7,8 +7,7 @@ import {
     Brain,
     Target,
     Sparkles,
-    Car,
-    Award
+    Car
 } from "./icons";
 
 const reasons = [
@@ -50,17 +49,13 @@ const WhyChooseUs = () => {
 
     return (
         <section className="py-24 md:py-32 bg-gradient-to-b from-background to-secondary relative overflow-hidden">
-            {/* Decorative Elements */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none">
-                <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-                    className="w-full h-full"
-                >
-                    <div className="absolute inset-0 border border-accent/5 rounded-full" />
-                    <div className="absolute inset-8 border border-accent/10 rounded-full" />
-                    <div className="absolute inset-16 border border-primary/5 rounded-full" />
-                </motion.div>
+            {/* Decorative Elements - Static for performance */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20">
+                <div className="w-full h-full relative">
+                    <div className="absolute inset-0 border border-accent/10 rounded-full" />
+                    <div className="absolute inset-8 border border-accent/20 rounded-full" />
+                    <div className="absolute inset-16 border border-primary/10 rounded-full" />
+                </div>
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
@@ -72,19 +67,11 @@ const WhyChooseUs = () => {
                     transition={{ duration: 0.8 }}
                     className="text-center mb-16"
                 >
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6"
-                    >
-                        <Award className="w-4 h-4" />
-                        <span className="text-sm font-medium tracking-wider">NUESTRA DIFERENCIA</span>
-                    </motion.div>
 
-                    <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-6 leading-tight">
-                        ¿Por qué elegir{" "}
-                        <span className="text-gradient-gold">Mágica Luna</span>?
+
+                    <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-primary mb-8 leading-[1.1]">
+                        ¿Por qué elegir <br />
+                        <span className="text-accent">Mágica Luna</span>?
                     </h2>
 
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">

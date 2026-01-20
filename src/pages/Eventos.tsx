@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import EventosMagicaLuna from "@/components/EventosMagicaLuna";
 import EspaciosEventos from "@/components/EspaciosEventos";
 import VideosEventos from "@/components/VideosEventos";
-import Gallery from "@/components/Gallery";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -61,7 +60,6 @@ const Eventos = () => {
             <EventosMagicaLuna />
             <EspaciosEventos />
             <VideosEventos />
-            <Gallery />
             <CallToAction />
             <Footer />
             <WhatsAppButton />

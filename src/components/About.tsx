@@ -20,13 +20,13 @@ const About = () => {
         <div ref={ref} className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-8 leading-tight">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-primary mb-8 leading-[1.1]">
               Una Experiencia <br />
-              <span className="text-gradient-gold">Única</span>
+              <span className="text-accent">Única</span>
             </h2>
 
             <div className="space-y-6 text-foreground/80 font-light leading-relaxed">
@@ -80,15 +80,13 @@ const About = () => {
               />
             </div>
 
-            {/* Floating Badge */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
+            {/* Floating Badge - Optimized */}
+            <div
               className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground p-6 rounded-lg shadow-glow"
             >
               <div className="font-serif text-3xl font-medium">10+</div>
               <div className="text-sm tracking-wider">Años de Experiencia</div>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>

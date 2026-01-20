@@ -65,8 +65,9 @@ const Testimonials = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-4">
-            Lo Que Dicen Nuestros Huéspedes
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-primary mb-8 leading-[1.1]">
+            Lo Que Dicen <br />
+            <span className="text-accent">Nuestros Huéspedes</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Historias reales de experiencias inolvidables

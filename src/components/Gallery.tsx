@@ -84,8 +84,9 @@ const Gallery = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-4">
-            Galería
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-primary mb-8 leading-[1.1]">
+            Nuestra <br />
+            <span className="text-accent">Galería</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Explora los momentos mágicos que te esperan en Glamping Mágica Luna
@@ -131,18 +132,18 @@ const Gallery = () => {
               </motion.div>
             </AnimatePresence>
 
-            {/* Navigation Arrows */}
+            {/* Navigation Arrows - Optimized */}
             <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 px-4 md:px-8 flex justify-between items-center z-10 pointer-events-none">
               <button
                 onClick={() => paginate(-1)}
-                className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-accent hover:text-accent-foreground transition-all pointer-events-auto group"
+                className="w-12 h-12 rounded-full bg-black/30 border border-white/10 flex items-center justify-center text-white hover:bg-accent hover:text-accent-foreground transition-all pointer-events-auto group"
                 aria-label="Previous"
               >
                 <ChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
               </button>
               <button
                 onClick={() => paginate(1)}
-                className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-accent hover:text-accent-foreground transition-all pointer-events-auto group"
+                className="w-12 h-12 rounded-full bg-black/30 border border-white/10 flex items-center justify-center text-white hover:bg-accent hover:text-accent-foreground transition-all pointer-events-auto group"
                 aria-label="Next"
               >
                 <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
@@ -150,8 +151,8 @@ const Gallery = () => {
             </div>
           </div>
 
-          {/* Thumbnail/Dots Area */}
-          <div className="flex justify-center gap-4 mt-8">
+          {/* Thumbnail/Dots Area - Simplified for performance */}
+          <div className="flex justify-center gap-2 md:gap-4 mt-8 flex-wrap">
             {images.map((_, index) => (
               <button
                 key={index}
@@ -159,20 +160,9 @@ const Gallery = () => {
                   setDirection(index > currentIndex ? 1 : -1);
                   setCurrentIndex(index);
                 }}
-                className={`relative h-1 w-12 md:w-16 rounded-full overflow-hidden transition-all duration-500 ${index === currentIndex ? "bg-accent" : "bg-primary/20 hover:bg-primary/40"
-                  }`}
-              >
-                <AnimatePresence>
-                  {index === currentIndex && (
-                    <motion.div
-                      initial={{ width: "0%" }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: 5, ease: "linear" }}
-                      className="absolute inset-0 bg-accent-light"
-                    />
-                  )}
-                </AnimatePresence>
-              </button>
+                className={`relative h-1.5 w-8 md:w-12 rounded-full overflow-hidden transition-all duration-300 ${index === currentIndex ? "bg-accent" : "bg-primary/20"}`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
             ))}
           </div>
         </div>

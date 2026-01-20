@@ -25,8 +25,8 @@ const Hero = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-hero-gradient" />
 
-      {/* Shimmer Effect */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,hsl(43_65%_53%_/_0.15)_0%,transparent_50%)] animate-shimmer" />
+      {/* Shimmer Effect - Static for performance */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,hsl(43_65%_53%_/_0.15)_0%,transparent_50%)]" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6">
@@ -36,7 +36,8 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="font-serif text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-primary-foreground tracking-wider font-light mb-4"
         >
-          Glamping Mágica Luna
+          <span className="text-primary-foreground">Glamping</span> <br className="md:hidden" />
+          <span className="text-accent font-medium">Mágica Luna</span>
         </motion.h1>
 
         <motion.p
@@ -83,8 +84,6 @@ const Hero = () => {
       >
         <motion.button
           onClick={scrollToAbout}
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
           className="text-primary-foreground/60 hover:text-accent transition-colors"
           aria-label="Scroll down"
         >

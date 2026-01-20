@@ -49,9 +49,10 @@ const Navbar = () => {
           <Link
             to="/"
             onClick={handleLinkClick}
-            className="font-serif text-2xl md:text-3xl text-accent tracking-widest font-medium"
+            className="font-serif text-2xl md:text-3xl tracking-widest font-medium"
           >
-            Glamping Mágica Luna
+            <span className="text-primary-foreground">Glamping</span>{" "}
+            <span className="text-accent">Mágica Luna</span>
           </Link>
         </motion.div>
 
