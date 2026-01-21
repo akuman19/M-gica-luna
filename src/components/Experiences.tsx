@@ -32,12 +32,6 @@ const experiences = [
       "Cada alojamiento cuenta con su propia área de fogata con leña incluida para noches mágicas bajo las estrellas.",
   },
   {
-    icon: UtensilsCrossed,
-    title: "Gastronomía Local",
-    description:
-      "Desayunos gourmet y cenas preparadas con ingredientes orgánicos de productores locales de la región.",
-  },
-  {
     icon: Footprints,
     title: "Caminatas Ecológicas",
     description:
@@ -48,12 +42,6 @@ const experiences = [
     title: "Avistamiento de Aves",
     description:
       "Observa especies nativas y migratorias en su hábitat natural con guías especializados.",
-  },
-  {
-    icon: Coffee,
-    title: "Cultura Cafetera",
-    description:
-      "Tours por fincas cafeteras, degustación de café de origen y experiencia en el proceso del grano.",
   },
   {
     icon: TreePine,

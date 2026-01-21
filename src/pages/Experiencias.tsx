@@ -6,7 +6,6 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import CallToAction from "@/components/CallToAction";
 import {
     Flame,
-    UtensilsCrossed,
     Bath,
     Wine,
     Building2,
@@ -18,7 +17,6 @@ import {
 import romanticImage from "@/assets/experiencia/Pareja en maya catamarán .jpg";
 import picnicImage from "@/assets/experiencia/PHOTO-2026-01-08-10-06-11.jpg";
 import campfireImage from "@/assets/experiencia/PHOTO-2026-01-08-10-06-12 6.jpg";
-import foodImage from "@/assets/experiencia/PHOTO-2026-01-08-10-06-11 2.jpg";
 import salonImage from "@/assets/Salonluzdeluna.jpg";
 import hikingImage from "@/assets/experiencia/PHOTO-2026-01-08-10-06-13.jpg";
 import natureImage from "@/assets/experiencia/Jacuzzi.jpg";
@@ -47,14 +45,6 @@ const experiences = [
         image: campfireImage,
         longDescription: "La experiencia de glamping no está completa sin una fogata. Proporcionamos todo lo necesario: leña seca, iniciadores y, por supuesto, masmelos para asar. Es el momento ideal para desconectar de la tecnología, mirar el fuego y disfrutar del sonido del bosque nocturno en la privacidad de tu alojamiento.",
         includes: ["Leña suficiente para 2-3 horas", "Kit de encendido", "Masmelos y pinchos", "Mantas térmicas"]
-    },
-    {
-        icon: UtensilsCrossed,
-        title: "Gastronomía Local",
-        description: "Deléitate con los sabores de la región. Desayunos típicos y cenas especiales preparadas con ingredientes frescos y orgánicos.",
-        image: foodImage,
-        longDescription: "Nuestra propuesta gastronómica resalta los sabores de Caldas. Comienza el día con un desayuno tradicional con arepa, huevos al gusto y calentado, o elige opciones más ligeras con frutas. Para la cena, ofrecemos platos a la carta que fusionan la cocina local con toques gourmet, todo preparado al momento para garantizar la frescura.",
-        includes: ["Desayuno incluido en tarifa", "Servicio a la habitación", "Opciones vegetarianas", "Café de origen ilimitado"]
     },
     {
         icon: Building2,
