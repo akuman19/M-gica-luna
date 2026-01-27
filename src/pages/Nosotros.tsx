@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
@@ -30,12 +31,23 @@ const values = [
 
 const Nosotros = () => {
     useEffect(() => {
-        document.title = "Sobre Nosotros - Glamping Mágica Luna";
         window.scrollTo(0, 0);
     }, []);
 
     return (
         <main className="overflow-hidden bg-background">
+            <SEO
+                title="Sobre Nosotros - Nuestra Historia"
+                description="Conoce la historia de Glamping Mágica Luna: nuestra misión, visión y valores. Un refugio de lujo en armonía con la naturaleza en Manizales, Caldas."
+                keywords="sobre nosotros glamping, historia glamping, misión visión valores, equipo glamping, Manizales Colombia"
+                url="https://glampingmagicaluna.com/nosotros"
+            />
+
+            {/* Skip to content link for accessibility */}
+            <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-accent-foreground focus:rounded">
+                Saltar al contenido principal
+            </a>
+
             <Navbar />
 
             {/* Hero Section */}
@@ -80,7 +92,7 @@ const Nosotros = () => {
             </section>
 
             {/* Story Section */}
-            <section className="py-24 md:py-32">
+            <section id="main-content" className="py-24 md:py-32">
                 <div className="container mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <motion.div
@@ -114,7 +126,7 @@ const Nosotros = () => {
                             className="relative"
                         >
                             <div className="rounded-2xl overflow-hidden shadow-2xl">
-                                <img src={historyImage} alt="Nuestra Historia" className="w-full h-full object-cover" />
+                                <img src={historyImage} alt="Historia de Glamping Mágica Luna - Vista panorámica de nuestras instalaciones" className="w-full h-full object-cover" />
                             </div>
                             <div className="absolute -bottom-8 -right-8 bg-accent p-10 rounded-2xl shadow-glow hidden md:block">
                                 <Star size={48} className="text-accent-foreground mb-4" />

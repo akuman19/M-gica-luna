@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
@@ -8,12 +9,23 @@ import galleryHeroImage from "@/assets/gallery-imported-9.jpg";
 
 const Galeria = () => {
     useEffect(() => {
-        document.title = "Galería - Glamping Mágica Luna";
         window.scrollTo(0, 0);
     }, []);
 
     return (
         <main className="overflow-hidden">
+            <SEO
+                title="Galería de Fotos"
+                description="Explora nuestra galería de imágenes: instalaciones de glamping, chalets con jacuzzi, eventos, bodas y experiencias inolvidables en Manizales, Colombia."
+                keywords="galería glamping, fotos glamping, imágenes hospedaje, eventos Manizales, bodas campestres fotos"
+                url="https://glampingmagicaluna.com/galeria"
+            />
+
+            {/* Skip to content link for accessibility */}
+            <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-accent-foreground focus:rounded">
+                Saltar al contenido principal
+            </a>
+
             <Navbar />
 
             {/* Hero de Galería */}
@@ -54,7 +66,9 @@ const Galeria = () => {
                 </div>
             </section>
 
-            <Gallery />
+            <div id="main-content">
+                <Gallery />
+            </div>
             <Footer />
             <WhatsAppButton />
         </main>

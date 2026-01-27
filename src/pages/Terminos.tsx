@@ -1,19 +1,25 @@
 import { useEffect } from 'react';
+import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Terminos = () => {
     useEffect(() => {
-        document.title = "Términos y Condiciones - Glamping Mágica Luna";
         window.scrollTo(0, 0);
     }, []);
 
     return (
         <main className="overflow-hidden">
+            <SEO
+                title="Términos y Condiciones"
+                description="Términos y condiciones de uso de Glamping Mágica Luna. Información sobre reservas, pagos, check-in, check-out y normas de convivencia."
+                url="https://glampingmagicaluna.com/terminos"
+            />
+
             <Navbar />
 
-            <section className="pt-32 pb-16 bg-background">
+            <section id="main-content" className="pt-32 pb-16 bg-background">
                 <div className="container mx-auto px-6 max-w-4xl">
                     <h1 className="font-serif text-4xl md:text-5xl text-primary mb-8">Términos y Condiciones</h1>
 

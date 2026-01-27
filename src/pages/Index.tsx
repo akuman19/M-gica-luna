@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -18,11 +19,16 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Glamping Mágica Luna - Lujo, Eventos y Experiencias en la Naturaleza";
+    window.scrollTo(0, 0);
   }, []);
 
   return (
     <main className="overflow-hidden">
+      <SEO
+        title="Glamping Mágica Luna - Lujo, Eventos y Experiencias en la Naturaleza"
+        description="Descubre Glamping Mágica Luna, una experiencia de lujo en la naturaleza de Manizales, Caldas. Chalets con jacuzzi, eventos especiales y experiencias únicas frente a los Termales."
+        url="https://glampingmagicaluna.com/"
+      />
       <Navbar />
       <Hero />
       <About />

@@ -4,6 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { HelmetProvider } from "react-helmet-async";
+
 
 // Lazy loading of pages for better performance
 const Inicio = lazy(() => import("./pages/Inicio"));
@@ -28,30 +30,32 @@ const PageLoader = () => (
 );
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Inicio />} />
-            <Route path="/eventos" element={<Eventos />} />
-            <Route path="/alojamientos" element={<Alojamientos />} />
-            <Route path="/nosotros" element={<Nosotros />} />
-            <Route path="/experiencias" element={<Experiencias />} />
-            <Route path="/galeria" element={<Galeria />} />
-            <Route path="/contacto" element={<Contacto />} />
-            <Route path="/terminos" element={<Terminos />} />
-            <Route path="/privacidad" element={<Privacidad />} />
-            <Route path="/politicas-cancelacion" element={<PoliticaCancelacion />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Inicio />} />
+              <Route path="/eventos" element={<Eventos />} />
+              <Route path="/alojamientos" element={<Alojamientos />} />
+              <Route path="/nosotros" element={<Nosotros />} />
+              <Route path="/experiencias" element={<Experiencias />} />
+              <Route path="/galeria" element={<Galeria />} />
+              <Route path="/contacto" element={<Contacto />} />
+              <Route path="/terminos" element={<Terminos />} />
+              <Route path="/privacidad" element={<Privacidad />} />
+              <Route path="/politicas-cancelacion" element={<PoliticaCancelacion />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

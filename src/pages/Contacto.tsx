@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
@@ -9,12 +10,23 @@ import contactHeroImage from "@/assets/conta.jpeg";
 
 const Contacto = () => {
     useEffect(() => {
-        document.title = "Contacto - Glamping Mágica Luna";
         window.scrollTo(0, 0);
     }, []);
 
     return (
         <main className="overflow-hidden">
+            <SEO
+                title="Contacto y Reservas"
+                description="Contáctanos para reservar tu experiencia en Glamping Mágica Luna. WhatsApp, teléfono y formulario de contacto. Ubicados en Manizales, Caldas, Colombia."
+                keywords="contacto glamping, reservas glamping Manizales, teléfono hospedaje, ubicación glamping, cómo llegar"
+                url="https://glampingmagicaluna.com/contacto"
+            />
+
+            {/* Skip to content link for accessibility */}
+            <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-accent-foreground focus:rounded">
+                Saltar al contenido principal
+            </a>
+
             <Navbar />
 
             {/* Hero de Contacto */}
@@ -55,8 +67,10 @@ const Contacto = () => {
                 </div>
             </section>
 
-            <Contact />
-            <FAQ />
+            <div id="main-content">
+                <Contact />
+                <FAQ />
+            </div>
             <Footer />
             <WhatsAppButton />
         </main>

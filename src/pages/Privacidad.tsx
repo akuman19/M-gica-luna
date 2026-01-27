@@ -1,19 +1,25 @@
 import { useEffect } from 'react';
+import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Privacidad = () => {
     useEffect(() => {
-        document.title = "Política de Privacidad - Glamping Mágica Luna";
         window.scrollTo(0, 0);
     }, []);
 
     return (
         <main className="overflow-hidden">
+            <SEO
+                title="Política de Privacidad"
+                description="Conoce nuestra política de privacidad. En Glamping Mágica Luna protegemos tu información personal y respetamos tu privacidad."
+                url="https://glampingmagicaluna.com/privacidad"
+            />
+
             <Navbar />
 
-            <section className="pt-32 pb-16 bg-background">
+            <section id="main-content" className="pt-32 pb-16 bg-background">
                 <div className="container mx-auto px-6 max-w-4xl">
                     <h1 className="font-serif text-4xl md:text-5xl text-primary mb-8">Política de Privacidad</h1>
 
@@ -56,8 +62,8 @@ const Privacidad = () => {
                         <h3 className="text-xl text-primary font-medium mt-8 mb-4">6. Contacto</h3>
                         <p>
                             Si tiene preguntas sobre nuestra política de privacidad, contáctenos en:<br />
-                            Email: Glampingmagicaluna@gmail.com<br />
-                            Teléfono: +57 311 333 3286
+                            Email: glampingmagicaluna1@gmail.com<br />
+                            Teléfono: +57 311 333 2886
                         </p>
 
                         <p className="mt-12 text-sm italic">

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import Accommodations from "@/components/Accommodations";
 import Experiences from "@/components/Experiences";
@@ -9,12 +10,23 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Alojamientos = () => {
     useEffect(() => {
-        document.title = "Planes Glamping Mágica Luna - Domos y Cabañas de Lujo";
         window.scrollTo(0, 0);
     }, []);
 
     return (
         <main className="overflow-hidden">
+            <SEO
+                title="Planes de Hospedaje"
+                description="Descubre nuestros exclusivos planes de glamping: chalets con jacuzzi, domos geodésicos y cabañas románticas. Hospedaje de lujo en Manizales con vistas a los termales."
+                keywords="planes glamping, hospedaje lujo Manizales, chalet jacuzzi, domos geodésicos, cabaña romántica, alojamiento termales"
+                url="https://glampingmagicaluna.com/alojamientos"
+            />
+
+            {/* Skip to content link for accessibility */}
+            <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-accent-foreground focus:rounded">
+                Saltar al contenido principal
+            </a>
+
             <Navbar />
 
             {/* Hero de Alojamientos */}
@@ -55,9 +67,11 @@ const Alojamientos = () => {
                 </div>
             </section>
 
-            <Accommodations />
-            <Experiences />
-            <CallToAction />
+            <div id="main-content">
+                <Accommodations />
+                <Experiences />
+                <CallToAction />
+            </div>
             <Footer />
             <WhatsAppButton />
         </main>

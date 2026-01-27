@@ -1,19 +1,25 @@
 import { useEffect } from 'react';
+import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const PoliticaCancelacion = () => {
     useEffect(() => {
-        document.title = "Política de Cancelación - Glamping Mágica Luna";
         window.scrollTo(0, 0);
     }, []);
 
     return (
         <main className="overflow-hidden">
+            <SEO
+                title="Política de Cancelación"
+                description="Política de cancelación y reembolso de Glamping Mágica Luna. Información sobre depósitos, cambios de fecha y condiciones de reserva."
+                url="https://glampingmagicaluna.com/politicas-cancelacion"
+            />
+
             <Navbar />
 
-            <section className="pt-32 pb-16 bg-background">
+            <section id="main-content" className="pt-32 pb-16 bg-background">
                 <div className="container mx-auto px-6 max-w-4xl">
                     <h1 className="font-serif text-4xl md:text-5xl text-primary mb-8">Política de Cancelación y Reembolso</h1>
 

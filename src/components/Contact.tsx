@@ -1,21 +1,47 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { MapPin, Phone, Mail, Clock, Send } from "./icons";
 import { useToast } from "@/hooks/use-toast";
+
+// Email ofuscado en base64 para evitar scrapers
+// El email real es: glampingmagicaluna1@gmail.com
+const getEmailEndpoint = () => {
+  const encoded = "Z2xhbXBpbmdtYWdpY2FsdW5hMUBnbWFpbC5jb20=";
+  return `https://formsubmit.co/ajax/${atob(encoded)}`;
+};
+
+// Decodifica el email para mostrar al usuario
+const getDisplayEmail = () => {
+  const encoded = "Z2xhbXBpbmdtYWdpY2FsdW5hMUBnbWFpbC5jb20=";
+  return atob(encoded);
+};
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
 
+  // Tiempo de carga del formulario para detectar bots
+  const [formLoadTime] = useState(Date.now());
+  const [displayEmail, setDisplayEmail] = useState("");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    message: ""
+    message: "",
+    // Campo honeypot - si se llena, es un bot
+    _honey: "",
+    // Campo de verificación temporal
+    _gotcha: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Decodifica el email del lado del cliente para evitar que esté en el HTML inicial
+  useEffect(() => {
+    setDisplayEmail(getDisplayEmail());
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,23 +49,57 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Anti-spam: Verificar si el campo honeypot está lleno (solo los bots lo llenan)
+    if (formData._honey || formData._gotcha) {
+      // Simular éxito para no alertar al bot
+      toast({
+        title: "¡Mensaje enviado!",
+        description: "Gracias por contactarnos.",
+      });
+      return;
+    }
+
+    // Anti-spam: Verificar tiempo mínimo (menos de 3 segundos es sospechoso)
+    const timeElapsed = Date.now() - formLoadTime;
+    if (timeElapsed < 3000) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Por favor, tómate un momento para completar el formulario.",
+      });
+      return;
+    }
+
+    // Validación adicional del email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        variant: "destructive",
+        title: "Email inválido",
+        description: "Por favor, ingresa un correo electrónico válido.",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      // Usamos formsubmit.co para enviar el correo directamente
-      // La primera vez que pruebes el formulario, te llegará un correo de confirmación a tu email
-      // Debes confirmarlo para habilitar el servicio para tu dominio/email
-      const response = await fetch("https://formsubmit.co/ajax/glampingmagicaluna1@gmail.com", {
+      const response = await fetch(getEmailEndpoint(), {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          ...formData,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || "No proporcionado",
+          message: formData.message,
           _subject: `Nueva Reserva/Consulta de ${formData.name}`,
           _template: "table",
-          _captcha: "false"
+          _captcha: "true", // Habilitar CAPTCHA de FormSubmit
+          _honey: formData._honey // FormSubmit también procesa honeypot
         })
       });
 
@@ -48,12 +108,12 @@ const Contact = () => {
           title: "¡Mensaje enviado!",
           description: "Gracias por contactarnos. Te responderemos pronto a tu correo.",
         });
-        setFormData({ name: "", email: "", phone: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", message: "", _honey: "", _gotcha: "" });
       } else {
         throw new Error("Error al enviar");
       }
     } catch (error) {
-      console.error(error);
+      // No logueamos el error en producción para evitar exposición de información
       toast({
         variant: "destructive",
         title: "Error",
@@ -131,11 +191,18 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-medium mb-1">Email</div>
+                    {/* Email renderizado del lado del cliente para evitar scrapers */}
                     <a
-                      href="mailto:glampingmagicaluna1@gmail.com"
+                      href={displayEmail ? `mailto:${displayEmail}` : "#"}
                       className="text-primary-foreground/70 hover:text-accent transition-colors font-light"
+                      onClick={(e) => {
+                        if (!displayEmail) {
+                          e.preventDefault();
+                          setDisplayEmail(getDisplayEmail());
+                        }
+                      }}
                     >
-                      glampingmagicaluna1@gmail.com
+                      {displayEmail || "Cargando..."}
                     </a>
                   </div>
                 </div>
@@ -176,49 +243,92 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
+              {/* Campos honeypot ocultos - los bots los llenan, humanos no los ven */}
+              <div className="absolute -left-[9999px] top-0" aria-hidden="true">
+                <label htmlFor="contact-honey">No llenar este campo</label>
                 <input
                   type="text"
+                  id="contact-honey"
+                  name="_honey"
+                  value={formData._honey}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+              <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
+                <label htmlFor="contact-gotcha">Dejar vacío</label>
+                <input
+                  type="text"
+                  id="contact-gotcha"
+                  name="_gotcha"
+                  value={formData._gotcha}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="contact-name" className="sr-only">Nombre completo</label>
+                <input
+                  type="text"
+                  id="contact-name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Nombre completo"
                   required
+                  minLength={2}
+                  maxLength={100}
+                  autoComplete="name"
                   className="w-full px-5 py-4 bg-primary-foreground/10 border border-primary-foreground/20 rounded-md text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:border-accent transition-colors"
                 />
               </div>
 
               <div>
+                <label htmlFor="contact-email" className="sr-only">Correo electrónico</label>
                 <input
                   type="email"
+                  id="contact-email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Correo electrónico"
                   required
+                  maxLength={254}
+                  autoComplete="email"
                   className="w-full px-5 py-4 bg-primary-foreground/10 border border-primary-foreground/20 rounded-md text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:border-accent transition-colors"
                 />
               </div>
 
               <div>
+                <label htmlFor="contact-phone" className="sr-only">Teléfono</label>
                 <input
                   type="tel"
+                  id="contact-phone"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="Teléfono"
+                  placeholder="Teléfono (opcional)"
+                  maxLength={20}
+                  autoComplete="tel"
                   className="w-full px-5 py-4 bg-primary-foreground/10 border border-primary-foreground/20 rounded-md text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:border-accent transition-colors"
                 />
               </div>
 
               <div>
+                <label htmlFor="contact-message" className="sr-only">Mensaje</label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Mensaje (fechas deseadas, número de personas, preferencias)"
                   rows={5}
                   required
+                  minLength={10}
+                  maxLength={2000}
                   className="w-full px-5 py-4 bg-primary-foreground/10 border border-primary-foreground/20 rounded-md text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:border-accent transition-colors resize-none"
                 />
               </div>
@@ -239,6 +349,13 @@ const Contact = () => {
                   </>
                 )}
               </motion.button>
+
+              <p className="text-xs text-primary-foreground/50 text-center">
+                Al enviar este formulario, aceptas nuestra{" "}
+                <a href="/privacidad" className="underline hover:text-accent">
+                  política de privacidad
+                </a>
+              </p>
             </form>
           </motion.div>
         </div>

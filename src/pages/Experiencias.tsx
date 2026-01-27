@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -74,12 +75,23 @@ const experiences = [
 
 const Experiencias = () => {
     useEffect(() => {
-        document.title = "Experiencias - Glamping Mágica Luna";
         window.scrollTo(0, 0);
     }, []);
 
     return (
         <main className="overflow-hidden bg-background">
+            <SEO
+                title="Experiencias Inolvidables"
+                description="Vive experiencias únicas en Glamping Mágica Luna: decoración romántica, picnic gourmet, fogatas privadas, jacuzzi con vistas y senderos naturales en Manizales."
+                keywords="experiencias glamping, decoración romántica, picnic gourmet, fogata privada, jacuzzi montaña, senderos naturaleza, Manizales"
+                url="https://glampingmagicaluna.com/experiencias"
+            />
+
+            {/* Skip to content link for accessibility */}
+            <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-accent-foreground focus:rounded">
+                Saltar al contenido principal
+            </a>
+
             <Navbar />
 
             {/* Hero Section */}
@@ -121,7 +133,7 @@ const Experiencias = () => {
             </section>
 
             {/* Content Section */}
-            <section className="py-24">
+            <section id="main-content" className="py-24">
                 <div className="container mx-auto px-6">
                     <div className="grid gap-24">
                         {experiences.map((exp, index) => (
@@ -139,7 +151,7 @@ const Experiencias = () => {
                                         <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay" />
                                         <img
                                             src={exp.image}
-                                            alt={exp.title}
+                                            alt={`Experiencia ${exp.title} en Glamping Mágica Luna`}
                                             loading="lazy"
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                         />
