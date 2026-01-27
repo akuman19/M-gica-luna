@@ -57,7 +57,7 @@ const Terminos = () => {
 
                         <h3 className="text-xl text-primary font-medium mt-8 mb-4">5. Responsabilidad</h3>
                         <p>
-                            Glamping Mágica Luna no se hace responsable por la pérdida de objetos de valor no depositados en custodia. El uso de las instalaciones, incluyendo jacuzzis y senderos, es bajo la responsabilidad del huésped.
+                            Glamping Mágica Luna no se hace responsable por la pérdida de objetos de valor no depositados en custodia. El uso de las instalaciones, incluyendo jacuzzis y zonas comunes, es bajo la responsabilidad del huésped.
                         </p>
 
                         <h3 className="text-xl text-primary font-medium mt-8 mb-4">6. Modificaciones</h3>

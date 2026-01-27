@@ -127,7 +127,7 @@ const EspaciosEventos = () => {
                                     {[
                                         "Salón Luz de Luna (400 personas)",
                                         "Salón Cristal (350 personas)",
-                                        "Áreas exteriores y senderos",
+                                        "Zonas al aire libre",
                                         "Parqueadero privado"
                                     ].map((item, i) => (
                                         <div

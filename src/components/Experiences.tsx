@@ -8,8 +8,7 @@ import {
   Wine,
   Bird,
   Coffee,
-  Heart,
-  Footprints
+  Heart
 } from "./icons";
 
 const experiences = [
@@ -30,12 +29,6 @@ const experiences = [
     title: "Fogatas Privadas",
     description:
       "Cada alojamiento cuenta con su propia área de fogata con leña incluida para noches mágicas bajo las estrellas.",
-  },
-  {
-    icon: Footprints,
-    title: "Caminatas Ecológicas",
-    description:
-      "Rutas guiadas por senderos naturales que atraviesan bosques, cascadas y miradores panorámicos.",
   },
   {
     icon: Bird,

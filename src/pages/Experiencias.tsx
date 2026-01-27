@@ -10,8 +10,7 @@ import {
     Bath,
     Wine,
     Building2,
-    Heart,
-    Footprints
+    Heart
 } from "@/components/icons";
 
 // Import images from assets - using the imported images as placeholders/actuals where appropriate
@@ -19,7 +18,6 @@ import romanticImage from "@/assets/experiencia/Pareja en maya catamarán .jpg";
 import picnicImage from "@/assets/experiencia/PHOTO-2026-01-08-10-06-11.jpg";
 import campfireImage from "@/assets/experiencia/PHOTO-2026-01-08-10-06-12 6.jpg";
 import salonImage from "@/assets/Salonluzdeluna.jpg";
-import hikingImage from "@/assets/experiencia/PHOTO-2026-01-08-10-06-13.jpg";
 import natureImage from "@/assets/experiencia/Jacuzzi.jpg";
 
 const experiences = [
@@ -56,14 +54,6 @@ const experiences = [
         includes: ["Capacidad 400 personas", "Sonido de alta fidelidad", "Iluminación profesional adaptable", "Vista panorámica al entorno natural"]
     },
     {
-        icon: Footprints,
-        title: "Senderos y Naturaleza",
-        description: "Recorre nuestros senderos privados rodeados de flores y disfruta de las vistas más espectaculares de la montaña.",
-        image: hikingImage,
-        longDescription: "Explora la belleza de nuestro entorno caminando por senderos diseñados para conectar con la paz de la montaña. Un recorrido por jardines exuberantes donde podrás apreciar la flora local y capturar momentos inolvidables en nuestros miradores estratégicos con el valle de fondo.",
-        includes: ["Caminata por senderos privados", "Vistas panorámicas al valle", "Acceso a miradores", "Puntos fotográficos"]
-    },
-    {
         icon: Bath,
         title: "Jacuzzi Espumoso & Relajación",
         description: "Disfruta de un baño relajante con burbujas y agua climatizada en la privacidad de tu terraza, con las mejores vistas de las montañas.",
@@ -82,8 +72,8 @@ const Experiencias = () => {
         <main className="overflow-hidden bg-background">
             <SEO
                 title="Experiencias Inolvidables"
-                description="Vive experiencias únicas en Glamping Mágica Luna: decoración romántica, picnic gourmet, fogatas privadas, jacuzzi con vistas y senderos naturales en Manizales."
-                keywords="experiencias glamping, decoración romántica, picnic gourmet, fogata privada, jacuzzi montaña, senderos naturaleza, Manizales"
+                description="Vive experiencias únicas en Glamping Mágica Luna: decoración romántica, picnic gourmet, fogatas privadas y jacuzzi con vistas en Manizales."
+                keywords="experiencias glamping, decoración romántica, picnic gourmet, fogata privada, jacuzzi montaña, Manizales"
                 url="https://glampingmagicaluna.com/experiencias"
             />
 

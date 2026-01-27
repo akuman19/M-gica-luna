@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Leaf, Mountain, Star } from "./icons";
+import { Leaf, Bath, Star } from "./icons";
 import aboutImage from "@/assets/about-image.jpg";
 
 const stats = [
   { icon: Leaf, value: "100%", label: "Ecológico" },
-  { icon: Mountain, value: "15km", label: "De Senderos" },
+  { icon: Bath, value: "Privado", label: "Jacuzzi" },
   { icon: Star, value: "4.9", label: "Calificación" },
 ];
 
