@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Youtube, Heart } from "./icons";
+import BancolombiaImg from "../assets/mediosdepago/bancolombia.png";
+import DaviviendaImg from "../assets/mediosdepago/davivienda.png";
+import BancoBogotaImg from "../assets/mediosdepago/bancodebogota.png";
+import NequiImg from "../assets/mediosdepago/nequi.png";
 
 const socialLinks = [
   { icon: Facebook, href: "https://www.facebook.com/glampingmagicaluna", label: "Facebook" },
@@ -23,6 +27,13 @@ const footerLinks = {
     { label: "Política de Privacidad", href: "/privacidad" },
   ],
 };
+
+const paymentMethods = [
+  { img: BancolombiaImg, label: "Bancolombia" },
+  { img: DaviviendaImg, label: "Davivienda" },
+  { img: BancoBogotaImg, label: "Banco de Bogotá" },
+  { img: NequiImg, label: "Nequi" },
+];
 
 const Footer = () => {
   return (
@@ -108,6 +119,41 @@ const Footer = () => {
           </div>
 
         </div>
+
+        {/* Payment Methods Section */}
+        <div className="mt-12 pt-8 border-t border-primary-foreground/10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h4 className="font-serif text-lg text-accent mb-3 text-center md:text-left">
+                Medios de Pago
+              </h4>
+              <p className="text-primary-foreground/60 text-sm font-light text-center md:text-left">
+                Aceptamos múltiples formas de pago para tu comodidad
+              </p>
+            </div>
+            <div className="grid grid-cols-2 lg:flex items-center justify-center lg:justify-end gap-4 lg:gap-5 w-full lg:w-fit mx-auto lg:mx-0 max-w-[320px] lg:max-w-none">
+              {paymentMethods.map((method) => (
+                <motion.div
+                  key={method.label}
+                  whileHover={{ scale: 1.05, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex flex-col items-center gap-1.5 group cursor-pointer"
+                >
+                  <div className="bg-white/5 backdrop-blur-md p-3 rounded-2xl transition-all group-hover:bg-white/10 flex items-center justify-center w-full lg:w-32 h-20 lg:h-20 overflow-hidden border border-white/10 group-hover:border-accent/40 shadow-xl">
+                    <img
+                      src={method.img}
+                      alt={method.label}
+                      className="w-[85%] h-[85%] object-contain filter brightness-110 contrast-125 transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <span className="text-[10px] text-accent font-serif tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 font-light translate-y-1 group-hover:translate-y-0 text-center">
+                    {method.label}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Bottom Bar */}
@@ -126,3 +172,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

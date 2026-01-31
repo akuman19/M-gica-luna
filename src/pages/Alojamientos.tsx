@@ -7,6 +7,7 @@ import Experiences from "@/components/Experiences";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import planesBackground from "@/assets/gallery-imported-13.jpg";
 
 const Alojamientos = () => {
     useEffect(() => {
@@ -32,9 +33,9 @@ const Alojamientos = () => {
             {/* Hero de Alojamientos */}
             <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-primary">
                 <div
-                    className="absolute inset-0 bg-cover bg-center opacity-40"
+                    className="absolute inset-0 bg-cover bg-center opacity-70"
                     style={{
-                        backgroundImage: `url('https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?w=1920&q=80')`
+                        backgroundImage: `url(${planesBackground})`
                     }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary" />

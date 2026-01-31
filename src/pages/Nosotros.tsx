@@ -3,31 +3,15 @@ import { motion } from 'framer-motion';
 import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import Testimonials from "@/components/Testimonials";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { Leaf, Award, Heart, Target, Mountain, Star } from "@/components/icons";
+import { Star } from "@/components/icons";
 import aboutImage from "@/assets/about-image.jpg";
 import historyImage from "@/assets/gallery-imported-13.jpg";
+import eventsImage from "@/assets/Salonluzdeluna.jpg";
+import { Link } from 'react-router-dom';
 
-const values = [
-    {
-        icon: Leaf,
-        title: "Sostenibilidad",
-        description: "Comprometidos con la preservación de la Vereda Gallinazo y el turismo responsable."
-    },
-    {
-        icon: Heart,
-        title: "Pasión por el Servicio",
-        description: "Cada detalle es pensado para superar las expectativas de nuestros huéspedes."
-    },
-    {
-        icon: Award,
-        title: "Excelencia",
-        description: "Buscamos la perfección en cada experiencia, desde el alojamiento hasta los eventos."
-    }
-];
 
 const Nosotros = () => {
     useEffect(() => {
@@ -38,8 +22,8 @@ const Nosotros = () => {
         <main className="overflow-hidden bg-background">
             <SEO
                 title="Sobre Nosotros - Nuestra Historia"
-                description="Conoce la historia de Glamping Mágica Luna: nuestra misión, visión y valores. Un refugio de lujo en armonía con la naturaleza en Manizales, Caldas."
-                keywords="sobre nosotros glamping, historia glamping, misión visión valores, equipo glamping, Manizales Colombia"
+                description="Conoce la historia de Glamping Mágica Luna. Un refugio de lujo en armonía con la naturaleza en Manizales, Caldas, ideal para hospedaje y eventos inolvidables."
+                keywords="sobre nosotros glamping, historia glamping, glamping Manizales, eventos Manizales, lujo naturaleza"
                 url="https://glampingmagicaluna.com/nosotros"
             />
 
@@ -53,161 +37,186 @@ const Nosotros = () => {
             {/* Hero Section */}
             <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-primary">
                 <motion.div
-                    initial={{ scale: 1.1 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
-                    className="absolute inset-0 bg-cover bg-center opacity-40"
-                    style={{
-                        backgroundImage: `url(${aboutImage})`
-                    }}
+                    initial={{ scale: 1.1, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 0.4 }}
+                    transition={{ duration: 0.8 }}
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: `url(${aboutImage})` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-primary" />
 
-                <div className="relative z-10 text-center px-6 pt-20">
-                    <motion.span
-                        initial={{ opacity: 0, y: 20 }}
+                <div className="relative z-10 text-center px-6 pt-20 max-w-5xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-accent text-sm tracking-[0.4em] font-light mb-6 block uppercase"
                     >
-                        Nuestra Esencia
-                    </motion.span>
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="font-serif text-5xl md:text-7xl lg:text-8xl text-primary-foreground tracking-wider font-extralight mb-8"
-                    >
-                        Nuestra <span className="text-accent italic">Historia</span>
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                        className="text-primary-foreground/90 text-lg md:text-2xl max-w-3xl mx-auto font-light leading-relaxed"
-                    >
-                        Mágica Luna nace del sueño de crear un refugio donde el lujo y la naturaleza convergen en perfecta armonía.
-                    </motion.p>
+                        <span className="text-accent text-sm tracking-[0.4em] font-light mb-6 block uppercase">
+                            Nuestra Esencia
+                        </span>
+                        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-primary-foreground tracking-wider font-extralight mb-8">
+                            Nuestra <span className="text-accent italic">Historia</span>
+                        </h1>
+                        <p className="text-primary-foreground/90 text-lg md:text-2xl max-w-3xl mx-auto font-light leading-relaxed">
+                            Mágica Luna nace del sueño de crear un refugio donde el lujo y la naturaleza convergen en perfecta armonía.
+                        </p>
+                    </motion.div>
                 </div>
             </section>
 
-            {/* Story Section */}
-            <section id="main-content" className="py-24 md:py-32">
+            {/* Story Section - Asymmetric Layout */}
+            <section id="main-content" className="py-24 md:py-40 bg-secondary/20">
                 <div className="container mx-auto px-6">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                    <div className="grid lg:grid-cols-12 gap-16 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1 }}
+                            className="lg:col-span-12 mb-12"
+                        >
+                            <span className="text-accent font-serif italic text-2xl mb-4 block">Desde el primer destello...</span>
+                            <h2 className="font-serif text-5xl md:text-7xl text-primary-dark leading-[1.1]">
+                                Forjando un Destino <br />
+                                <span className="text-accent font-extralight border-b border-accent/30">Extraordinario</span>
+                            </h2>
+                        </motion.div>
+
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
+                            transition={{ duration: 1 }}
+                            className="lg:col-span-5 space-y-8"
                         >
-                            <h2 className="font-serif text-4xl md:text-5xl text-primary mb-8 leading-tight">
-                                Forjando un Destino <br />
-                                <span className="text-accent">Inolvidable</span>
+                            <div className="relative group">
+                                <div className="absolute -inset-4 bg-accent/5 rounded-3xl -rotate-2 group-hover:rotate-0 transition-transform duration-500" />
+                                <div className="relative bg-card p-8 md:p-12 rounded-2xl shadow-xl border border-border">
+                                    <p className="text-foreground/80 font-light text-xl leading-relaxed italic">
+                                        "Nuestra historia no se escribe con palabras, se siente en la brisa de la mañana y se ve en el reflejo de nuestros jacuzzis."
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="space-y-6 text-foreground/70 font-light text-lg leading-relaxed pl-4 border-l-2 border-accent/20">
+                                <p>
+                                    Ubicados en la mística <strong>Vereda Gallinazo</strong>, nacimos con una obsesión: elevar el concepto de descanso. No queríamos ser solo un hotel, sino el escenario de tus mejores recuerdos.
+                                </p>
+                                <p>
+                                    Entendimos que la verdadera magia ocurre cuando el silencio de la montaña se encuentra con el confort del lujo moderno. Cada espacio en Mágica Luna ha sido curado para honrar esa dualidad.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1 }}
+                            className="lg:col-span-7 relative"
+                        >
+                            <div className="relative aspect-[4/5] md:aspect-video rounded-3xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)]">
+                                <img
+                                    src={historyImage}
+                                    alt="Historia de Glamping Mágica Luna"
+                                    className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000 scale-110 hover:scale-100"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-tr from-primary-dark/40 to-transparent" />
+                            </div>
+
+                            {/* Experience Badge */}
+                            <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.5, duration: 0.8 }}
+                                className="absolute -bottom-10 -left-6 md:-left-12 bg-primary-dark text-white p-10 rounded-2xl shadow-2xl border border-white/10"
+                            >
+                                <div className="flex items-center gap-4 mb-2">
+                                    <Star size={32} className="text-accent fill-accent" />
+                                    <span className="text-5xl font-serif">4.9</span>
+                                </div>
+                                <p className="text-xs tracking-[0.3em] text-white/50 uppercase">Excelencia <br />Certificada</p>
+                            </motion.div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+
+            {/* Events Integration Section */}
+            <section className="py-24 bg-white">
+                <div className="container mx-auto px-6">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1 }}
+                            className="order-2 lg:order-1"
+                        >
+                            <span className="text-accent font-serif italic text-xl mb-4 block">Celebraciones de Élite</span>
+                            <h2 className="font-serif text-4xl md:text-5xl text-primary-dark mb-8 leading-tight">
+                                El Escenario de tus <br />
+                                <span className="text-accent underline decoration-accent/20 underline-offset-8">Grandes Momentos</span>
                             </h2>
                             <div className="space-y-6 text-foreground/80 font-light text-lg leading-relaxed">
                                 <p>
-                                    Ubicados estratégicamente en la <strong>Vereda Gallinazo</strong>, a solo pasos de Manizales, comenzamos este viaje con una visión clara: redefinir la experiencia del glamping en el Eje Cafetero.
+                                    Nuestra evolución nos llevó a preguntarnos: ¿Por qué limitar la magia a solo dos personas? Así nació nuestra faceta como <strong>centro de eventos de alto nivel</strong>.
                                 </p>
                                 <p>
-                                    Lo que empezó como un pequeño proyecto familiar se ha transformado en un referente de lujo y confort. Entendimos que el verdadero descanso no solo reside en una cama cómoda, sino en la conexión profunda con el entorno. Por eso, integramos jacuzzis privados y mallas catamarán que permiten a nuestros huéspedes flotar sobre las montañas.
+                                    Con el imponente <strong>Salón Luz de Luna</strong> y el sofisticado <strong>Salón Cristal</strong>, hemos creado espacios con capacidad para hasta 400 personas, donde la elegancia arquitectónica se funde con el paisaje de Manizales.
                                 </p>
                                 <p>
-                                    Nuestra ubicación privilegiada frente a los termales nos otorga una atmósfera mística única, donde el vapor y la luna crean noches verdaderamente mágicas.
+                                    Desde bodas de ensueño hasta convenciones corporativas, en Mágica Luna transformamos cada evento en un hito histórico. No solo ofrecemos un lugar; ofrecemos una atmósfera donde cada detalle técnico y estético está garantizado.
                                 </p>
+                            </div>
+                            <div className="mt-10">
+                                <Link
+                                    to="/eventos"
+                                    className="inline-block px-10 py-4 bg-primary-dark text-white rounded-full hover:bg-accent hover:text-primary-dark transition-all duration-300 tracking-widest text-xs uppercase"
+                                >
+                                    Explorar Eventos
+                                </Link>
                             </div>
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="relative"
+                            transition={{ duration: 1 }}
+                            className="relative order-1 lg:order-2"
                         >
-                            <div className="rounded-2xl overflow-hidden shadow-2xl">
-                                <img src={historyImage} alt="Historia de Glamping Mágica Luna - Vista panorámica de nuestras instalaciones" className="w-full h-full object-cover" />
-                            </div>
-                            <div className="absolute -bottom-8 -right-8 bg-accent p-10 rounded-2xl shadow-glow hidden md:block">
-                                <Star size={48} className="text-accent-foreground mb-4" />
-                                <div className="text-accent-foreground font-serif text-4xl">4.9/5</div>
-                                <div className="text-accent-foreground/80 text-sm tracking-widest uppercase">Satisfacción</div>
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Mission & Vision */}
-            <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
-
-                <div className="container mx-auto px-6 relative z-10">
-                    <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-3xl border border-white/10"
-                        >
-                            <Target size={48} className="text-accent mb-6" />
-                            <h3 className="font-serif text-3xl mb-4 text-accent">Nuestra Misión</h3>
-                            <p className="text-lg font-light leading-relaxed text-white/90">
-                                Proporcionar experiencias de hospedaje y eventos de alto nivel, fusionando el lujo moderno con la serenidad de la naturaleza, garantizando el bienestar de nuestros huéspedes y el respeto por el medio ambiente.
-                            </p>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-3xl border border-white/10"
-                        >
-                            <Mountain size={48} className="text-accent mb-6" />
-                            <h3 className="font-serif text-3xl mb-4 text-accent">Nuestra Visión</h3>
-                            <p className="text-lg font-light leading-relaxed text-white/90">
-                                Ser reconocidos para el 2030 como el destino de glamping y eventos más exclusivo y sostenible de Caldas, destacándonos por nuestra innovación constante y la excelencia en el servicio personalizado.
-                            </p>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Values Section */}
-            <section className="py-24 md:py-32">
-                <div className="container mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <h2 className="font-serif text-4xl text-primary mb-4">Nuestros Valores</h2>
-                        <div className="w-24 h-1 bg-accent mx-auto" />
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {values.map((value, index) => (
-                            <motion.div
-                                key={value.title}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="text-center p-10 bg-secondary/30 rounded-2xl hover:bg-secondary/50 transition-colors"
-                            >
-                                <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <value.icon size={32} className="text-accent" />
+                            <div className="aspect-square relative flex items-center justify-center">
+                                {/* Decorational circle */}
+                                <div className="absolute inset-0 border border-accent/20 rounded-full animate-spin-slow" />
+                                <div className="w-[90%] h-[90%] rounded-full overflow-hidden shadow-2xl z-10">
+                                    <img
+                                        src={eventsImage}
+                                        alt="Eventos en Mágica Luna"
+                                        className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-1000"
+                                    />
                                 </div>
-                                <h4 className="font-serif text-2xl text-primary mb-4 uppercase tracking-wider">{value.title}</h4>
-                                <p className="text-muted-foreground font-light leading-relaxed">
-                                    {value.description}
-                                </p>
-                            </motion.div>
-                        ))}
+
+                                {/* Floating stat */}
+                                <motion.div
+                                    animate={{ y: [0, -15, 0] }}
+                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                    className="absolute top-0 right-0 bg-accent p-6 rounded-full shadow-xl z-20"
+                                >
+                                    <div className="text-center">
+                                        <div className="text-accent-foreground font-serif text-2xl font-bold">400+</div>
+                                        <div className="text-accent-foreground/70 text-[10px] uppercase tracking-tighter">Invitados</div>
+                                    </div>
+                                </motion.div>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
+
 
             <WhyChooseUs />
-            <Testimonials />
             <CallToAction />
             <Footer />
             <WhatsAppButton />

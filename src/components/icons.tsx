@@ -451,3 +451,5 @@ export const ArrowLeft: React.FC<IconProps> = ({ size = 24, className, ...props 
         <path d="M19 12H5" />
     </svg>
 );
+
+

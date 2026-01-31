@@ -1,30 +1,56 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Users, Bed, Bath, Eye, X, MessageCircle, Check, ChevronLeft, ChevronRight, Play } from "./icons";
 import domeImage from "@/assets/hero-glamping.jpg";
 
 // Plan 1 (Chalet 1)
 import chalet1_img1 from "@/assets/chalet1/PHOTO-2026-01-15-18-09-21.jpg";
+import chalet1_img1_2 from "@/assets/chalet1/PHOTO-2026-01-15-18-09-21 2.jpg";
 import chalet1_img2 from "@/assets/chalet1/PHOTO-2026-01-15-18-09-22.jpg";
+import chalet1_img2_2 from "@/assets/chalet1/PHOTO-2026-01-15-18-09-22 2.jpg";
 import chalet1_img3 from "@/assets/chalet1/PHOTO-2026-01-15-18-09-23.jpg";
+import chalet1_img3_2 from "@/assets/chalet1/PHOTO-2026-01-15-18-09-23 2.jpg";
 import chalet1_img4 from "@/assets/chalet1/PHOTO-2026-01-15-18-09-24.jpg";
+import chalet1_img4_2 from "@/assets/chalet1/PHOTO-2026-01-15-18-09-24 2.jpg";
 import chalet1_vid1 from "@/assets/chalet1/VIDEO-2026-01-15-18-09-20.mp4";
 import chalet1_vid2 from "@/assets/chalet1/VIDEO-2026-01-15-18-09-21.mp4";
+import chalet1_vid2_2 from "@/assets/chalet1/VIDEO-2026-01-15-18-09-21 2.mp4";
 
 // Plan 2 (Chalet 2)
 import chalet2_img1 from "@/assets/chalet2/PHOTO-2026-01-15-18-08-58.jpg";
 import chalet2_img2 from "@/assets/chalet2/PHOTO-2026-01-15-18-09-00.jpg";
 import chalet2_img3 from "@/assets/chalet2/PHOTO-2026-01-15-18-09-17.jpg";
+import chalet2_img3_2 from "@/assets/chalet2/PHOTO-2026-01-15-18-09-17 2.jpg";
 import chalet2_img4 from "@/assets/chalet2/PHOTO-2026-01-15-18-09-18.jpg";
+import chalet2_img4_3 from "@/assets/chalet2/PHOTO-2026-01-15-18-09-18 3.jpg";
+import chalet2_img5 from "@/assets/chalet2/PHOTO-2026-01-15-18-09-19.jpg";
+import chalet2_img5_2 from "@/assets/chalet2/PHOTO-2026-01-15-18-09-19 2.jpg";
+import chalet2_img6 from "@/assets/chalet2/PHOTO-2026-01-15-18-09-20.jpg";
 import chalet2_vid1 from "@/assets/chalet2/VIDEO-2026-01-15-18-08-59.mp4";
 import chalet2_vid2 from "@/assets/chalet2/VIDEO-2026-01-15-18-09-16.mp4";
 
 // Plan 3 (Glamping)
+import plan3_img1 from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.24 AM (1).jpeg";
+import plan3_img2 from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.24 AM (2).jpeg";
+import plan3_img3 from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.24 AM.jpeg";
+import plan3_img4 from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.25 AM (1).jpeg";
+import plan3_img5 from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.25 AM (2).jpeg";
+import plan3_img6 from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.25 AM (3).jpeg";
+import plan3_img7 from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.25 AM (4).jpeg";
+import plan3_img8 from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.25 AM.jpeg";
+import plan3_img9 from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.26 AM (1).jpeg";
+import plan3_img10 from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.26 AM (2).jpeg";
+import plan3_img11 from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.26 AM.jpeg";
 import plan3_vid1 from "@/assets/plan3glamping/WhatsApp Video 2026-01-19 at 8.33.10 PM.mp4";
+import plan3_vid2 from "@/assets/plan3glamping/WhatsApp Video 2026-01-29 at 9.12.26 AM (1).mp4";
+import plan3_vid3 from "@/assets/plan3glamping/WhatsApp Video 2026-01-29 at 9.12.26 AM.mp4";
 
 // Plan 4 (Parejas)
-import plan4_vid1 from "@/assets/plan4parejas/WhatsApp Video 2026-01-19 at 8.37.13 PM.mp4";
+import plan4_img1 from "@/assets/plan4parejas/WhatsApp Image 2026-01-29 at 9.11.37 AM (2).jpeg";
+import plan4_img2 from "@/assets/plan4parejas/WhatsApp Image 2026-01-29 at 9.11.37 AM (3).jpeg";
+import plan4_img3 from "@/assets/plan4parejas/WhatsApp Image 2026-01-29 at 9.11.37 AM (4).jpeg";
+import plan4_img4 from "@/assets/plan4parejas/WhatsApp Image 2026-01-29 at 9.11.37 AM (5).jpeg";
 import plan4_vid2 from "@/assets/plan4parejas/WhatsApp Video 2026-01-19 at 8.37.28 PM.mp4";
 
 const WHATSAPP_NUMBER = "573113332886";
@@ -55,10 +81,15 @@ const accommodations: Accommodation[] = [
     media: [
       { type: 'video', url: chalet1_vid1 },
       { type: 'image', url: chalet1_img1 },
+      { type: 'image', url: chalet1_img1_2 },
       { type: 'image', url: chalet1_img2 },
+      { type: 'image', url: chalet1_img2_2 },
       { type: 'video', url: chalet1_vid2 },
       { type: 'image', url: chalet1_img3 },
+      { type: 'image', url: chalet1_img3_2 },
       { type: 'image', url: chalet1_img4 },
+      { type: 'image', url: chalet1_img4_2 },
+      { type: 'video', url: chalet1_vid2_2 },
     ],
     price: 350000,
     description:
@@ -80,7 +111,12 @@ const accommodations: Accommodation[] = [
       { type: 'image', url: chalet2_img2 },
       { type: 'video', url: chalet2_vid2 },
       { type: 'image', url: chalet2_img3 },
+      { type: 'image', url: chalet2_img3_2 },
       { type: 'image', url: chalet2_img4 },
+      { type: 'image', url: chalet2_img4_3 },
+      { type: 'image', url: chalet2_img5 },
+      { type: 'image', url: chalet2_img5_2 },
+      { type: 'image', url: chalet2_img6 },
     ],
     price: 350000,
     description:
@@ -97,8 +133,20 @@ const accommodations: Accommodation[] = [
     id: 3,
     name: "Glamping (Plan 3)",
     media: [
+      { type: 'video', url: plan3_vid2 },
+      { type: 'image', url: plan3_img1 },
+      { type: 'image', url: plan3_img2 },
+      { type: 'video', url: plan3_vid3 },
+      { type: 'image', url: plan3_img3 },
+      { type: 'image', url: plan3_img4 },
+      { type: 'image', url: plan3_img5 },
       { type: 'video', url: plan3_vid1 },
-      { type: 'image', url: domeImage },
+      { type: 'image', url: plan3_img6 },
+      { type: 'image', url: plan3_img7 },
+      { type: 'image', url: plan3_img8 },
+      { type: 'image', url: plan3_img9 },
+      { type: 'image', url: plan3_img10 },
+      { type: 'image', url: plan3_img11 },
     ],
     price: 320000,
     description:
@@ -113,25 +161,28 @@ const accommodations: Accommodation[] = [
   },
   {
     id: 4,
-    name: "Plan Parejas (Plan 4)",
+    name: "Cabañas Parejas (Plan 4)",
     media: [
-      { type: 'video', url: plan4_vid1 },
+      { type: 'image', url: plan4_img1 },
+      { type: 'image', url: plan4_img2 },
       { type: 'video', url: plan4_vid2 },
+      { type: 'image', url: plan4_img3 },
+      { type: 'image', url: plan4_img4 },
     ],
-    price: 380000,
+    price: 160000,
     description:
-      "Experiencia romántica Premium diseñada especialmente para parejas.",
+      "Acogedoras cabañas diseñadas para parejas en medio de la naturaleza.",
     fullDescription:
-      "El Plan 4 es nuestra opción más exclusiva para parejas que buscan una escapada romántica inolvidable. Incluye detalles especiales, total privacidad y acceso a todas nuestras comodidades premium en un entorno mágico.",
+      "Nuestras Cabañas Parejas (Plan 4) ofrecen una experiencia íntima, rústica y confortable en medio del bosque. Equipadas con lo esencial para un descanso reparador, son perfectas para parejas que buscan simplicidad y conexión directa con el entorno natural de Mágica Luna.",
     capacity: 2,
     beds: 1,
     baths: 1,
-    features: ["Especial Parejas", "Ambiente Romántico", "Privacidad Total", "Vistas Increíbles"],
-    amenities: ["Toallas Premium", "Champú y Jabón", "Minibar", "Parqueadero Gratis", "Decoración Especial"],
+    features: ["Ambiente Rústico", "Privacidad", "Conexión Natural", "Paz Total"],
+    amenities: ["Toallas", "Champú y Jabón", "Minibar", "Parqueadero Gratis"],
   },
 ];
 
-const MediaSlider = ({ media, name, height = "h-64" }: { media: MediaItem[], name: string, height?: string }) => {
+const MediaSlider = ({ media, name, height = "h-64", enableKeyboard = false }: { media: MediaItem[], name: string, height?: string, enableKeyboard?: boolean }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -162,6 +213,18 @@ const MediaSlider = ({ media, name, height = "h-64" }: { media: MediaItem[], nam
       return nextIndex;
     });
   };
+
+  useEffect(() => {
+    if (!enableKeyboard || media.length <= 1) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") paginate(-1);
+      if (e.key === "ArrowRight") paginate(1);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [enableKeyboard, media.length]);
 
   if (media.length === 0) return <div className={`${height} bg-muted flex items-center justify-center`}>No media</div>;
 
@@ -380,8 +443,10 @@ const Accommodations = () => {
             >
               <div className="flex flex-col lg:flex-row">
                 {/* Modal Media */}
-                <div className="lg:w-3/5 relative">
-                  <MediaSlider media={selectedAccommodation.media} name={selectedAccommodation.name} height="h-80 md:h-[600px]" />
+                <div className="lg:w-3/5 relative min-h-[400px]">
+                  <div className="lg:absolute lg:inset-0 lg:h-full">
+                    <MediaSlider media={selectedAccommodation.media} name={selectedAccommodation.name} height="h-80 lg:h-full" enableKeyboard={true} />
+                  </div>
                   <button
                     onClick={closeModal}
                     className="absolute top-4 left-4 p-2 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors z-20 md:hidden"
