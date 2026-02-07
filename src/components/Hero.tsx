@@ -55,8 +55,10 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.9 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <Link
-            to="/contacto"
+          <a
+            href="https://wa.me/573113332886?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20Hotel%20Glamping%20Magica%20Luna%20y%20hacer%20una%20reserva."
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative px-10 py-4 bg-accent text-accent-foreground font-medium tracking-widest text-sm overflow-hidden transition-all duration-500 hover:shadow-glow"
           >
             <span className="relative z-10">RESERVA AHORA</span>
@@ -64,13 +66,13 @@ const Hero = () => {
             <span className="absolute inset-0 flex items-center justify-center text-primary font-medium tracking-widest text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
               RESERVA AHORA
             </span>
-          </Link>
+          </a>
 
           <Link
             to="/alojamientos"
             className="px-10 py-4 border border-primary-foreground/40 text-primary-foreground font-light tracking-widest text-sm hover:bg-primary-foreground/10 hover:border-accent transition-all duration-300"
           >
-            VER ALOJAMIENTOS
+            VER PLANES
           </Link>
         </motion.div>
       </div>

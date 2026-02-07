@@ -28,10 +28,10 @@ const videos = [
     },
     {
         id: "Rvz6L2IYSC4",
-        title: "Eventos Empresariales",
-        description: "Congresos, reuniones y celebraciones corporativas",
+        title: "Unos XV Mágicos",
+        description: "Vive la magia de tus quince años en un entorno natural sin igual",
         thumbnail: "https://img.youtube.com/vi/Rvz6L2IYSC4/hqdefault.jpg",
-        category: "Empresarial",
+        category: "XV Años",
     },
 ];
 

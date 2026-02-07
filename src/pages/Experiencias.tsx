@@ -14,11 +14,11 @@ import {
 } from "@/components/icons";
 
 // Import images from assets - using the imported images as placeholders/actuals where appropriate
-import romanticImage from "@/assets/experiencia/Pareja en maya catamarán .jpg";
-import picnicImage from "@/assets/experiencia/PHOTO-2026-01-08-10-06-11.jpg";
-import campfireImage from "@/assets/experiencia/PHOTO-2026-01-08-10-06-12 6.jpg";
+import romanticImage from "@/assets/plan4parejas/WhatsApp Image 2026-01-29 at 9.11.37 AM (4).jpeg";
+import picnicImage from "@/assets/experiencia/Pareja en maya catamarán .jpg";
+import campfireImage from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.25 AM.jpeg";
 import salonImage from "@/assets/Salonluzdeluna.jpg";
-import natureImage from "@/assets/experiencia/Jacuzzi.jpg";
+import natureImage from "@/assets/experiencia/Jacuzzi parejas.jpg";
 
 const experiences = [
     {

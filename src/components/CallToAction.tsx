@@ -9,12 +9,12 @@ const CallToAction = () => {
 
     const handleReservaClick = () => {
         const message = encodeURIComponent("¡Hola! Me gustaría reservar una experiencia en Mágica Luna. ¿Tienen disponibilidad?");
-        window.open(`https://wa.me/573113333286?text=${message}`, "_blank");
+        window.open(`https://wa.me/573113332886?text=${message}`, "_blank");
     };
 
     const handleCotizarClick = () => {
         const message = encodeURIComponent("¡Hola! Me gustaría cotizar un evento en Mágica Luna. ¿Podrían darme más información sobre precios y disponibilidad?");
-        window.open(`https://wa.me/573113333286?text=${message}`, "_blank");
+        window.open(`https://wa.me/573113332886?text=${message}`, "_blank");
     };
 
     return (

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Youtube, Heart } from "./icons";
+import { Facebook, Instagram, Youtube } from "./icons";
 import BancolombiaImg from "../assets/mediosdepago/bancolombia.png";
 import DaviviendaImg from "../assets/mediosdepago/davivienda.png";
 import BancoBogotaImg from "../assets/mediosdepago/bancodebogota.png";
@@ -162,9 +162,7 @@ const Footer = () => {
           <p className="text-primary-foreground/60 text-sm font-light">
             © 2025 Hotel Glamping Mágica Luna. Todos los derechos reservados.
           </p>
-          <p className="text-primary-foreground/60 text-sm font-light flex items-center gap-1">
-            Hecho con <Heart size={14} className="text-accent fill-accent" /> en Colombia
-          </p>
+
         </div>
       </div>
     </footer>

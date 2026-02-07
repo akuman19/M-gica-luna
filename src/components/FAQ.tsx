@@ -37,7 +37,7 @@ const faqs = [
   {
     question: "¿Tienen costo el parqueadero y el acceso a termales?",
     answer:
-      "El parqueadero es totalmente gratuito para nuestros huéspedes. Para los termales, tenemos un convenio especial con 'La Magia de los Termales' (ubicados justo al frente). Nuestros clientes pagan solo $55.000 (precio normal $70.000).",
+      "El parqueadero es totalmente gratuito para nuestros huéspedes. Para los termales, tenemos un convenio especial con los termales ubicados justo al frente Nuestros clientes pagan solo $55.000 (precio normal $70.000).",
   },
   {
     question: "¿Cuáles son los horarios de Check-in y Check-out?",
@@ -47,7 +47,7 @@ const faqs = [
   {
     question: "¿Todos los alojamientos tienen jacuzzi?",
     answer:
-      "Sí, todos nuestros planes actuales (Chalets y Glamping) cuentan con su propio jacuzzi privado para garantizarte una experiencia de máximo relax.",
+      "Sí, todos nuestros planes cuentan con su propio jacuzzi privado para garantizarte una experiencia de máximo relax. Ten en cuenta que la malla catamarán es un atractivo exclusivo de nuestro Glamping (Plan 3).",
   },
 ];
 

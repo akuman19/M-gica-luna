@@ -171,13 +171,13 @@ const accommodations: Accommodation[] = [
     ],
     price: 160000,
     description:
-      "Acogedoras cabañas diseñadas para parejas en medio de la naturaleza.",
+      "Acogedoras cabañas para parejas con jacuzzi privado en medio de la naturaleza.",
     fullDescription:
-      "Nuestras Cabañas Parejas (Plan 4) ofrecen una experiencia íntima, rústica y confortable en medio del bosque. Equipadas con lo esencial para un descanso reparador, son perfectas para parejas que buscan simplicidad y conexión directa con el entorno natural de Mágica Luna.",
+      "Nuestras Cabañas Parejas (Plan 4) ofrecen una experiencia íntima, rústica y confortable en medio del bosque. Incluyen jacuzzi privado burbujeante para un descanso reparador, perfectas para parejas que buscan simplicidad y conexión directa con el entorno natural de Mágica Luna.",
     capacity: 2,
     beds: 1,
     baths: 1,
-    features: ["Ambiente Rústico", "Privacidad", "Conexión Natural", "Paz Total"],
+    features: ["Jacuzzi Privado", "Ambiente Rústico", "Privacidad", "Conexión Natural"],
     amenities: ["Toallas", "Champú y Jabón", "Minibar", "Parqueadero Gratis"],
   },
 ];

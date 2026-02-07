@@ -2,33 +2,40 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "./icons";
-import galleryImp1 from "@/assets/gallery-imported-1.jpg";
-import galleryImp2 from "@/assets/gallery-imported-2.jpg";
-import galleryImp3 from "@/assets/gallery-imported-3.jpg";
-import galleryImp4 from "@/assets/gallery-imported-4.jpg";
-import galleryImp5 from "@/assets/gallery-imported-5.jpg";
-import galleryImp6 from "@/assets/gallery-imported-6.jpg";
-import galleryImp7 from "@/assets/gallery-imported-7.jpg";
-import galleryImp8 from "@/assets/gallery-imported-8.jpg";
-import galleryImp9 from "@/assets/gallery-imported-9.jpg";
-import galleryImp10 from "@/assets/gallery-imported-10.jpg";
-import galleryImp12 from "@/assets/gallery-imported-12.jpg";
-import galleryImp13 from "@/assets/gallery-imported-13.jpg";
+import gallery1 from "@/assets/gallery-imported-1.jpg";
+import gallery2 from "@/assets/gallery-imported-2.jpg";
+import gallery3 from "@/assets/gallery-imported-3.jpg";
+import gallery4 from "@/assets/gallery-imported-4.jpg";
+import gallery5 from "@/assets/gallery-imported-5.jpg";
+import gallery6 from "@/assets/gallery-imported-6.jpg";
+import gallery7 from "@/assets/gallery-imported-7.jpg";
+import gallery8 from "@/assets/gallery-imported-10.jpg";
+import gallery9 from "@/assets/gallery-imported-13.jpg";
+import gallery10 from "@/assets/plan4parejas/WhatsApp Image 2026-01-29 at 9.11.37 AM (4).jpeg";
+import gallery11 from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.25 AM (1).jpeg";
+import gallery12 from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.25 AM (4).jpeg";
+import gallery13 from "@/assets/experiencia/Amigos disfrutando jacuzzi .jpg";
+import gallery14 from "@/assets/Salonluzdeluna.jpg";
+import gallery15 from "@/assets/experiencia/Familia disfrutando chalet .jpg";
+import gallery16 from "@/assets/plan4parejas/WhatsApp Image 2026-01-29 at 9.11.37 AM (2).jpeg";
 
 const images = [
-  { src: galleryImp1, alt: "Eventos Especiales" },
-  { src: galleryImp2, alt: "Celebraciones Inolvidables" },
-  { src: galleryImp3, alt: "Naturaleza Viva" },
-  { src: galleryImp4, alt: "Espacios con Encanto" },
-  { src: galleryImp5, alt: "Atardeceres Únicos" },
-  { src: galleryImp6, alt: "Detalles que Enamoran" },
-  { src: galleryImp7, alt: "Experiencias Mágicas" },
-  { src: galleryImp8, alt: "Confort y Estilo" },
-  { src: galleryImp9, alt: "Ambiente Romántico" },
-  { src: galleryImp10, alt: "Vistas Panorámicas" },
-  { src: galleryImp12, alt: "Momentos de Paz" },
-  { src: galleryImp12, alt: "Escapada Perfecta" },
-  { src: galleryImp13, alt: "Magia en la Montaña" },
+  { src: gallery1, alt: "Eventos Inolvidables" },
+  { src: gallery2, alt: "Caminatas en Familia" },
+  { src: gallery3, alt: "Momentos de Relajación" },
+  { src: gallery4, alt: "Conexión con la Naturaleza" },
+  { src: gallery5, alt: "Paseos Románticos" },
+  { src: gallery6, alt: "Amigos y Jacuzzi" },
+  { src: gallery7, alt: "Vistas Espectaculares" },
+  { src: gallery8, alt: "Confort y Estilo" },
+  { src: gallery9, alt: "Atardeceres Mágicos" },
+  { src: gallery10, alt: "Decoración Romántica" },
+  { src: gallery11, alt: "Noches Bajo las Estrellas" },
+  { src: gallery12, alt: "Espacios de Lujo" },
+  { src: gallery13, alt: "Experiencias Compartidas" },
+  { src: gallery14, alt: "Salón de Eventos" },
+  { src: gallery15, alt: "Calidez Familiar" },
+  { src: gallery16, alt: "Jacuzzi Decorado" },
 ];
 
 const Gallery = () => {
@@ -70,9 +77,9 @@ const Gallery = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]); // Added images.length as dependency for safety
 
   return (
     <section id="galeria" className="py-24 md:py-32 bg-secondary overflow-hidden">
