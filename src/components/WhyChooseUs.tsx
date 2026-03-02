@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import {
     Moon,
     TreePine,
@@ -45,7 +45,58 @@ const reasons = [
 
 const WhyChooseUs = () => {
     const ref = useRef(null);
+    const scrollRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleScroll = useCallback(() => {
+        if (!scrollRef.current) return;
+        const container = scrollRef.current;
+        const children = container.children;
+        if (!children.length) return;
+
+        const containerRect = container.getBoundingClientRect();
+        const containerCenter = containerRect.left + containerRect.width / 2;
+
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        for (let i = 0; i < children.length; i++) {
+            const child = children[i] as HTMLElement;
+            const childRect = child.getBoundingClientRect();
+            const childCenter = childRect.left + childRect.width / 2;
+            const distance = Math.abs(containerCenter - childCenter);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = i;
+            }
+        }
+
+        setActiveIndex(closestIndex);
+    }, []);
+
+    useEffect(() => {
+        const container = scrollRef.current;
+        if (!container) return;
+        container.addEventListener("scroll", handleScroll, { passive: true });
+        return () => container.removeEventListener("scroll", handleScroll);
+    }, [handleScroll]);
+
+    const scrollTo = (index: number) => {
+        if (!scrollRef.current) return;
+        const container = scrollRef.current;
+        const child = container.children[index] as HTMLElement;
+        if (!child) return;
+        const containerRect = container.getBoundingClientRect();
+        const childRect = child.getBoundingClientRect();
+        const scrollLeft = container.scrollLeft + (childRect.left - containerRect.left) - (containerRect.width - childRect.width) / 2;
+        container.scrollTo({
+            left: scrollLeft,
+            behavior: "smooth",
+        });
+    };
+
+    const progress = ((activeIndex + 1) / reasons.length) * 100;
 
     return (
         <section className="py-24 md:py-32 bg-gradient-to-b from-background to-secondary relative overflow-hidden">
@@ -67,8 +118,6 @@ const WhyChooseUs = () => {
                     transition={{ duration: 0.8 }}
                     className="text-center mb-16"
                 >
-
-
                     <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-primary mb-8 leading-[1.1]">
                         ¿Por qué elegir <br />
                         <span className="text-accent">Mágica Luna</span>?
@@ -79,8 +128,84 @@ const WhyChooseUs = () => {
                     </p>
                 </motion.div>
 
-                {/* Reasons Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* ===== MOBILE: Swipeable Carousel ===== */}
+                <div className="md:hidden">
+                    <div
+                        ref={scrollRef}
+                        className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide px-[8%]"
+                        style={{
+                            scrollbarWidth: "none",
+                            msOverflowStyle: "none",
+                            WebkitOverflowScrolling: "touch",
+                        }}
+                    >
+                        {reasons.map((reason, index) => (
+                            <motion.div
+                                key={reason.title}
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                                className="snap-center flex-shrink-0"
+                                style={{
+                                    width: "84%",
+                                    minWidth: "84%",
+                                    transition: "transform 0.35s ease, opacity 0.35s ease",
+                                    transform: activeIndex === index ? "scale(1)" : "scale(0.93)",
+                                    opacity: activeIndex === index ? 1 : 0.5,
+                                }}
+                            >
+                                <div className="bg-card rounded-2xl p-7 shadow-soft h-full border border-accent/10 relative overflow-hidden">
+                                    {/* Top accent line */}
+                                    <div
+                                        className="absolute top-0 left-0 h-1 bg-gradient-to-r from-accent to-accent-light transition-all duration-500"
+                                        style={{ width: activeIndex === index ? "100%" : "0%" }}
+                                    />
+
+                                    {/* Icon */}
+                                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center mb-5">
+                                        <reason.icon className="w-6 h-6 text-accent" />
+                                    </div>
+
+                                    <h3 className="font-serif text-lg text-primary mb-2 leading-snug">
+                                        {reason.title}
+                                    </h3>
+
+                                    <p className="text-muted-foreground font-light text-sm leading-relaxed">
+                                        {reason.description}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Progress bar + counter */}
+                    <div className="mt-6 flex items-center gap-4 px-2">
+                        <div className="flex-1 h-1 bg-accent/10 rounded-full overflow-hidden">
+                            <motion.div
+                                className="h-full bg-gradient-to-r from-accent to-accent-light rounded-full"
+                                initial={{ width: 0 }}
+                                animate={{ width: `${progress}%` }}
+                                transition={{ duration: 0.4, ease: "easeOut" }}
+                            />
+                        </div>
+                        <span className="text-xs font-medium text-muted-foreground tabular-nums whitespace-nowrap">
+                            {activeIndex + 1} / {reasons.length}
+                        </span>
+                    </div>
+
+                    {/* Swipe hint on first view */}
+                    <motion.p
+                        initial={{ opacity: 1 }}
+                        animate={{ opacity: activeIndex > 0 ? 0 : 0.6 }}
+                        transition={{ duration: 0.5 }}
+                        className="text-center text-xs text-muted-foreground mt-3 pointer-events-none"
+                    >
+                        ← Desliza para ver más →
+                    </motion.p>
+                </div>
+
+                {/* ===== DESKTOP: Grid Layout (md and up) ===== */}
+                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {reasons.map((reason, index) => (
                         <motion.div
                             key={reason.title}
@@ -129,3 +254,5 @@ const WhyChooseUs = () => {
 };
 
 export default WhyChooseUs;
+
+
