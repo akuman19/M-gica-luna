@@ -21,7 +21,7 @@ const Eventos = () => {
                 title="Eventos - Bodas, Quinceañeras y Celebraciones"
                 description="Celebra tus momentos especiales en Glamping Mágica Luna. Espacios únicos para bodas, quinceañeras, eventos corporativos y reuniones familiares en Manizales."
                 keywords="eventos Manizales, bodas campestres, quinceañeras, eventos corporativos, salón eventos, celebraciones naturaleza, fincas para eventos"
-                url="https://glampingmagicaluna.com/eventos"
+                url="https://hotelglampingmagicaluna.com.co/eventos"
             />
 
             {/* Skip to content link for accessibility */}
@@ -33,11 +33,11 @@ const Eventos = () => {
 
             {/* Hero de Eventos */}
             <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-primary">
-                <div
-                    className="absolute inset-0 bg-cover bg-center opacity-40"
-                    style={{
-                        backgroundImage: `url(${eventHeroImage})`
-                    }}
+                <img
+                    src={eventHeroImage}
+                    alt="Eventos especiales en Glamping Mágica Luna"
+                    className="absolute inset-0 w-full h-full object-cover opacity-40"
+                    fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary" />
 

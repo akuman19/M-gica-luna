@@ -14,7 +14,7 @@ const Terminos = () => {
             <SEO
                 title="Términos y Condiciones"
                 description="Términos y condiciones de uso de Glamping Mágica Luna. Información sobre reservas, pagos, check-in, check-out y normas de convivencia."
-                url="https://glampingmagicaluna.com/terminos"
+                url="https://hotelglampingmagicaluna.com.co/terminos"
             />
 
             <Navbar />

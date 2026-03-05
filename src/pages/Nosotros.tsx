@@ -24,7 +24,7 @@ const Nosotros = () => {
                 title="Sobre Nosotros - Nuestra Historia"
                 description="Conoce la historia de Glamping Mágica Luna. Un refugio de lujo en armonía con la naturaleza en Manizales, Caldas, ideal para hospedaje y eventos inolvidables."
                 keywords="sobre nosotros glamping, historia glamping, glamping Manizales, eventos Manizales, lujo naturaleza"
-                url="https://glampingmagicaluna.com/nosotros"
+                url="https://hotelglampingmagicaluna.com.co/nosotros"
             />
 
             {/* Skip to content link for accessibility */}

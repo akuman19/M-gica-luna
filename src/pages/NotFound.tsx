@@ -17,7 +17,7 @@ const NotFound = () => {
       <SEO
         title="Página no encontrada"
         description="La página que buscas no existe. Vuelve al inicio de Glamping Mágica Luna."
-        url={`https://glampingmagicaluna.com${location.pathname}`}
+        url={`https://hotelglampingmagicaluna.com.co${location.pathname}`}
       />
       <Navbar />
 

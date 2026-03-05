@@ -27,7 +27,7 @@ const Index = () => {
       <SEO
         title="Glamping Mágica Luna - Lujo, Eventos y Experiencias en la Naturaleza"
         description="Descubre Glamping Mágica Luna, una experiencia de lujo en la naturaleza de Manizales, Caldas. Chalets con jacuzzi, eventos especiales y experiencias únicas frente a los Termales."
-        url="https://glampingmagicaluna.com/"
+        url="https://hotelglampingmagicaluna.com.co/"
       />
       <Navbar />
       <Hero />

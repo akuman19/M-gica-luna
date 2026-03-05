@@ -19,6 +19,7 @@ import picnicImage from "@/assets/experiencia/Pareja en maya catamarán .jpg";
 import campfireImage from "@/assets/plan3glamping/WhatsApp Image 2026-01-29 at 9.12.25 AM.jpeg";
 import salonImage from "@/assets/Salonluzdeluna.jpg";
 import natureImage from "@/assets/experiencia/Jacuzzi parejas.jpg";
+import experiencesHero from "@/assets/gallery-imported-9.jpg";
 
 const experiences = [
     {
@@ -74,7 +75,7 @@ const Experiencias = () => {
                 title="Experiencias Inolvidables"
                 description="Vive experiencias únicas en Glamping Mágica Luna: decoración romántica, picnic gourmet, fogatas privadas y jacuzzi con vistas en Manizales."
                 keywords="experiencias glamping, decoración romántica, picnic gourmet, fogata privada, jacuzzi montaña, Manizales"
-                url="https://glampingmagicaluna.com/experiencias"
+                url="https://hotelglampingmagicaluna.com.co/experiencias"
             />
 
             {/* Skip to content link for accessibility */}
@@ -86,11 +87,14 @@ const Experiencias = () => {
 
             {/* Hero Section */}
             <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-primary">
-                <div
-                    className="absolute inset-0 bg-cover bg-center opacity-40"
-                    style={{
-                        backgroundImage: `url(${romanticImage})`
-                    }}
+                <motion.img
+                    initial={{ scale: 1.1, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 0.7 }}
+                    transition={{ duration: 0.8 }}
+                    src={experiencesHero}
+                    alt="Experiencias únicas en Glamping Mágica Luna"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary" />
 

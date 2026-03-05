@@ -1,0 +1,15 @@
+cd public_html
+mkdir assets
+put "c:\Users\Familia\Desktop\trabajos\Hotel Glamping Magica luna\dist\.htaccess" .htaccess
+put "c:\Users\Familia\Desktop\trabajos\Hotel Glamping Magica luna\dist\index.html" index.html
+put "c:\Users\Familia\Desktop\trabajos\Hotel Glamping Magica luna\dist\favicon.ico" favicon.ico
+put "c:\Users\Familia\Desktop\trabajos\Hotel Glamping Magica luna\dist\favicon.svg" favicon.svg
+put "c:\Users\Familia\Desktop\trabajos\Hotel Glamping Magica luna\dist\og-image.jpg" og-image.jpg
+put "c:\Users\Familia\Desktop\trabajos\Hotel Glamping Magica luna\dist\placeholder.svg" placeholder.svg
+put "c:\Users\Familia\Desktop\trabajos\Hotel Glamping Magica luna\dist\robots.txt" robots.txt
+put "c:\Users\Familia\Desktop\trabajos\Hotel Glamping Magica luna\dist\sitemap.xml" sitemap.xml
+put "c:\Users\Familia\Desktop\trabajos\Hotel Glamping Magica luna\dist\_headers" _headers
+lcd "c:\Users\Familia\Desktop\trabajos\Hotel Glamping Magica luna\dist\assets"
+cd assets
+put -r *
+bye

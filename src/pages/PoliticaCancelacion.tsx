@@ -14,7 +14,7 @@ const PoliticaCancelacion = () => {
             <SEO
                 title="Política de Cancelación"
                 description="Política de cancelación y reembolso de Glamping Mágica Luna. Información sobre depósitos, cambios de fecha y condiciones de reserva."
-                url="https://glampingmagicaluna.com/politicas-cancelacion"
+                url="https://hotelglampingmagicaluna.com.co/politicas-cancelacion"
             />
 
             <Navbar />

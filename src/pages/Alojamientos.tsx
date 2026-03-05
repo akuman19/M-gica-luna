@@ -20,7 +20,7 @@ const Alojamientos = () => {
                 title="Planes de Hospedaje"
                 description="Descubre nuestros exclusivos planes de glamping: chalets con jacuzzi, domos geodésicos y cabañas románticas. Hospedaje de lujo en Manizales con vistas a los termales."
                 keywords="planes glamping, hospedaje lujo Manizales, chalet jacuzzi, domos geodésicos, cabaña romántica, alojamiento termales"
-                url="https://glampingmagicaluna.com/alojamientos"
+                url="https://hotelglampingmagicaluna.com.co/alojamientos"
             />
 
             {/* Skip to content link for accessibility */}
@@ -32,11 +32,11 @@ const Alojamientos = () => {
 
             {/* Hero de Alojamientos */}
             <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-primary">
-                <div
-                    className="absolute inset-0 bg-cover bg-center opacity-70"
-                    style={{
-                        backgroundImage: `url(${planesBackground})`
-                    }}
+                <img
+                    src={planesBackground}
+                    alt="Nuestros planes de glamping en Manizales"
+                    className="absolute inset-0 w-full h-full object-cover opacity-70"
+                    fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary" />
 

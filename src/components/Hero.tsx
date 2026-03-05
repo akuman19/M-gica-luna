@@ -17,9 +17,12 @@ const Hero = () => {
       className="relative h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
-        style={{ backgroundImage: `url(${heroImage})` }}
+      <img
+        src={heroImage}
+        alt="Glamping Mágica Luna frente a los termales"
+        className="absolute inset-0 w-full h-full object-cover bg-center bg-fixed"
+        fetchPriority="high"
+        loading="eager"
       />
 
       {/* Overlay */}

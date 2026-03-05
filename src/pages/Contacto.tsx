@@ -19,7 +19,7 @@ const Contacto = () => {
                 title="Contacto y Reservas"
                 description="Contáctanos para reservar tu experiencia en Glamping Mágica Luna. WhatsApp, teléfono y formulario de contacto. Ubicados en Manizales, Caldas, Colombia."
                 keywords="contacto glamping, reservas glamping Manizales, teléfono hospedaje, ubicación glamping, cómo llegar"
-                url="https://glampingmagicaluna.com/contacto"
+                url="https://hotelglampingmagicaluna.com.co/contacto"
             />
 
             {/* Skip to content link for accessibility */}

@@ -14,7 +14,7 @@ const Privacidad = () => {
             <SEO
                 title="Política de Privacidad"
                 description="Conoce nuestra política de privacidad. En Glamping Mágica Luna protegemos tu información personal y respetamos tu privacidad."
-                url="https://glampingmagicaluna.com/privacidad"
+                url="https://hotelglampingmagicaluna.com.co/privacidad"
             />
 
             <Navbar />

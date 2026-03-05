@@ -18,7 +18,7 @@ const Galeria = () => {
                 title="Galería de Fotos"
                 description="Explora nuestra galería de imágenes: instalaciones de glamping, chalets con jacuzzi, eventos, bodas y experiencias inolvidables en Manizales, Colombia."
                 keywords="galería glamping, fotos glamping, imágenes hospedaje, eventos Manizales, bodas campestres fotos"
-                url="https://glampingmagicaluna.com/galeria"
+                url="https://hotelglampingmagicaluna.com.co/galeria"
             />
 
             {/* Skip to content link for accessibility */}

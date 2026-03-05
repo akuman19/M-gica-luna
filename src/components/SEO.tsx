@@ -13,8 +13,8 @@ const defaultSEO = {
     title: "Glamping Mágica Luna - Lujo en Armonía con la Naturaleza | Colombia",
     description: "Descubre Glamping Mágica Luna, una experiencia de lujo en la naturaleza de Manizales, Caldas. Domos geodésicos, tiendas safari y cabañas frente a los Termales.",
     keywords: "glamping, Colombia, lujo, naturaleza, ecoturismo, Manizales, Caldas, Eje Cafetero, hospedaje, Villamaria, termales, jacuzzi, chalet, domos, tienda safari, escapada romántica, turismo de naturaleza, montaña, descanso, malla catamarán",
-    image: "https://glampingmagicaluna.com/og-image.jpg",
-    url: "https://glampingmagicaluna.com",
+    image: "https://hotelglampingmagicaluna.com.co/og-image.jpg",
+    url: "https://hotelglampingmagicaluna.com.co",
     type: "website",
 };
 
@@ -24,13 +24,13 @@ const getStructuredData = (url: string) => {
     const businessSchema = {
         "@context": "https://schema.org",
         "@type": "LodgingBusiness",
-        "@id": "https://glampingmagicaluna.com/#organization",
+        "@id": "https://hotelglampingmagicaluna.com.co/#organization",
         "name": "Glamping Mágica Luna",
         "alternateName": "Hotel Glamping Mágica Luna",
         "description": "Experiencia de glamping de lujo en la naturaleza de Manizales, Caldas. Chalets con jacuzzi, domos geodésicos y cabañas frente a los Termales.",
-        "url": "https://glampingmagicaluna.com",
-        "logo": "https://glampingmagicaluna.com/og-image.jpg",
-        "image": "https://glampingmagicaluna.com/og-image.jpg",
+        "url": "https://hotelglampingmagicaluna.com.co",
+        "logo": "https://hotelglampingmagicaluna.com.co/og-image.jpg",
+        "image": "https://hotelglampingmagicaluna.com.co/og-image.jpg",
         "telephone": ["+573146646180", "+573113332886"],
         "email": "glampingmagicaluna1@gmail.com",
         "priceRange": "$$$",
@@ -85,19 +85,19 @@ const getStructuredData = (url: string) => {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Glamping Mágica Luna",
-        "url": "https://glampingmagicaluna.com",
+        "url": "https://hotelglampingmagicaluna.com.co",
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://glampingmagicaluna.com/?s={search_term_string}",
+            "target": "https://hotelglampingmagicaluna.com.co/?s={search_term_string}",
             "query-input": "required name=search_term_string"
         }
     };
 
     // Schema de breadcrumbs dinámico
     const getBreadcrumbSchema = () => {
-        const path = url.replace("https://glampingmagicaluna.com", "");
+        const path = url.replace("https://hotelglampingmagicaluna.com.co", "");
         const breadcrumbs = [
-            { name: "Inicio", url: "https://glampingmagicaluna.com/" }
+            { name: "Inicio", url: "https://hotelglampingmagicaluna.com.co/" }
         ];
 
         const pathMap: Record<string, string> = {
@@ -115,7 +115,7 @@ const getStructuredData = (url: string) => {
         if (path && path !== "/" && pathMap[path]) {
             breadcrumbs.push({
                 name: pathMap[path],
-                url: `https://glampingmagicaluna.com${path}`
+                url: `https://hotelglampingmagicaluna.com.co${path}`
             });
         }
 
